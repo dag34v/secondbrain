@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>34V Second Brain - Partner Deck</title>
+<style>
+  :root {
+    --bg: #0e1116;
+    --panel: #161b22;
+    --ink: #e6edf3;
+    --mute: #8b95a1;
+    --accent: #f5a524;
+    --rule: #2a313c;
+    --good: #4ade80;
+    --bad: #f87171;
+    --warn: #fbbf24;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+  .slide {
+    position: absolute; inset: 0;
+    padding: 56px 80px 90px 80px;
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .slide.active { display: flex; }
+  .num {
+    position: absolute; top: 22px; left: 80px;
+    font-size: 13px; color: var(--mute); letter-spacing: 0.08em;
+  }
+  h1 {
+    font-size: 38px; line-height: 1.15; margin: 8px 0 6px 0;
+    font-weight: 700; letter-spacing: -0.01em;
+  }
+  h2.sub {
+    font-size: 16px; color: var(--mute); margin: 0 0 28px 0;
+    font-weight: 500; letter-spacing: 0.02em;
+  }
+  .blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .blocks.full { grid-template-columns: 1fr; }
+  .block {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .block h3 {
+    margin: 0 0 8px 0;
+    font-size: 12px; letter-spacing: 0.14em; color: var(--accent);
+    text-transform: uppercase;
+  }
+  .block p, .block li { margin: 0 0 8px 0; }
+  .block ul { margin: 0; padding-left: 18px; }
+  .cite {
+    color: var(--accent);
+    font-size: 11px; vertical-align: super;
+    text-decoration: none;
+  }
+  .notes {
+    position: absolute; bottom: 18px; left: 80px; right: 80px;
+    border-top: 1px dashed var(--rule);
+    padding-top: 8px;
+    color: var(--mute);
+    font-size: 12px;
+  }
+  .notes b { color: var(--ink); }
+  .controls {
+    position: fixed; right: 20px; bottom: 14px;
+    color: var(--mute); font-size: 12px;
+  }
+  .progress {
+    position: fixed; left: 0; right: 0; top: 0;
+    height: 3px; background: var(--rule);
+  }
+  .progress > div { height: 100%; background: var(--accent); width: 0; transition: width .2s; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td {
+    text-align: left; padding: 8px 10px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th { color: var(--accent); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 11px; }
+  .tag.good { background: rgba(74, 222, 128, 0.12); color: var(--good); }
+  .tag.bad  { background: rgba(248, 113, 113, 0.12); color: var(--bad); }
+  .tag.warn { background: rgba(251, 191, 36, 0.12); color: var(--warn); }
+  .cover {
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .cover .meta { color: var(--mute); margin-top: 18px; font-size: 14px; }
+  .cover h1 { font-size: 56px; max-width: 900px; }
+  .recflag {
+    display: inline-block;
+    background: var(--accent); color: #1a1308;
+    padding: 3px 10px; border-radius: 4px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .decision {
+    background: linear-gradient(180deg, rgba(245,165,36,0.10), rgba(245,165,36,0.02));
+    border: 1px solid var(--accent);
+  }
+  .small { font-size: 13px; color: var(--mute); }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<div class="progress"><div id="bar"></div></div>
+<div class="deck" id="deck">
+
+<!-- ============================ COVER ============================ -->
+<section class="slide cover active">
+  <h1>The 34V Second Brain</h1>
+  <div class="meta">Partner decision session - June 2026</div>
+  <div class="meta" style="margin-top:6px;">Connect what we already have. Earn the right to a product.</div>
+</section>
+
+<!-- ============================ 1 ============================ -->
+<section class="slide">
+  <div class="num">01 / WHY NOW</div>
+  <h1>AI in VC is mainstream. Studio-native tooling is not.</h1>
+  <h2 class="sub">The window is short, and we are already partway in.</h2>
+
+  <div class="blocks">
+    <div class="block">
+      <h3>Claim</h3>
+      <p>Build now. AI in VC is mainstream, but no one has built a second
+      brain for an <i>operating</i> studio. 34V has already codified eight
+      playbooks as Claude skills. We are not starting from zero.</p>
+    </div>
+    <div class="block">
+      <h3>Evidence</h3>
+      <ul>
+        <li>85% of dealmakers use AI to automate daily tasks, up from 76%
+          a year ago - Affinity 2026 survey of ~300 firms.<a class="cite" href="sources.md">[1]</a></li>
+        <li>AI now touches sourcing, diligence, monitoring, and LP
+          reporting.<a class="cite" href="sources.md">[2]</a></li>
+        <li>The published "AI for VC" tool lists target funds, not
+          operating studios.<a class="cite" href="sources.md">[3]</a></li>
+        <li>34V already runs Claude skills for memos, GTM, market
+          sizing, portfolio updates, IDA office hours, investor updates,
+          competitive mapping, and financial models.<a class="cite" href="sources.md">[4]</a></li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Why it beats waiting</h3>
+      <p>Wait one year and the category will be defined by fund tools we
+      have to retrofit. The studio playbook layer is the part no one else
+      can write. If we do not own it, we will rent it.</p>
+    </div>
+    <div class="block">
+      <h3>What 34V should do</h3>
+      <p>Treat the eight skills as v0. Spend the next 90 days connecting
+      them into one system with shared memory, not building new ones.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> The "no studio-native product" point is an
+    observation from scanning published catalogs, not a counted statistic.
+    Flag this as a market-mapping read, not a number. Sources [1]-[4] in
+    sources.md.
+  </div>
+</section>
+
+<!-- ============================ 2 ============================ -->
+<section class="slide">
+  <div class="num">02 / POLSIA</div>
+  <h1>Polsia is the wrong template for us.</h1>
+  <h2 class="sub">It runs companies for non-operators. Our companies have operators.</h2>
+
+  <div class="blocks">
+    <div class="block">
+      <h3>Claim</h3>
+      <p>Polsia is impressive but it is solving a different problem. It
+      replaces the operator. 34V backs operators. We need leverage on
+      studio judgment, not an AI CEO.</p>
+    </div>
+    <div class="block">
+      <h3>Evidence on Polsia</h3>
+      <ul>
+        <li>Founder: <b>Ben Broca</b>. Demoed on Latent Space (Swyx),
+          Feb 26 2026.<a class="cite" href="sources.md">[1]</a></li>
+        <li>$1M ARR on day of interview, ~30 days after launch; later
+          reports cite $6M+ ARR and 5,000-6,000 companies.<a class="cite" href="sources.md">[1][4]</a></li>
+        <li>Loop: AI CEO wakes nightly, executes, emails the founder
+          each morning.<a class="cite" href="sources.md">[2]</a></li>
+        <li>Pricing: subscription plus a 20% cut of revenue.<a class="cite" href="sources.md">[3]</a></li>
+        <li>Polsia provisions everything (email, Render, Neon, Stripe,
+          GitHub) - the user does not run a company; they steer a bot.<a class="cite" href="sources.md">[3]</a></li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Why this is not our shape</h3>
+      <p>Operators reject "AI CEO". The valuable surface for us is not
+      execution-by-bot, it is the studio's compounded judgment delivered
+      to a founder who is already executing. The bottleneck at 34V is
+      not headcount in the company - it is replaying our playbook across
+      the portfolio.</p>
+    </div>
+    <div class="block">
+      <h3>What 34V should do</h3>
+      <p>Steal one idea from Polsia - the daily nudge loop - and reject
+      the rest. Position as a co-pilot, not a CEO. Frame it inside
+      the founder's existing tools (Slack, email, doc).</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> The brief's anchor of "$1.8M ARR / 2,000+
+    companies" sits between two verified data points ($1M / 1,000 at
+    launch; $6M+ / 5,000-6,000 weeks later). We cite the verified
+    extremes rather than the unverifiable middle. Sources [1]-[4].
+  </div>
+</section>
+
+<!-- ============================ 3 ============================ -->
+<section class="slide">
+  <div class="num">03 / THE FLYWHEEL</div>
+  <h1>The flywheel is the moat. A fund cannot copy it. Neither can a SaaS vendor.</h1>
+  <h2 class="sub">Partner judgment goes in. Founder decisions come out. Both sides feed memory.</h2>
+
+  <div class="blocks">
+    <div class="block">
+      <h3>Claim</h3>
+      <p>The defensible asset is the loop: partner judgment shapes the
+      answer, founders decide and execute, usage produces data, partner
+      corrections improve the next answer. None of that is available to
+      someone who is not embedded as a co-builder.</p>
+    </div>
+    <div class="block">
+      <h3>Evidence</h3>
+      <ul>
+        <li>Studio companies reach Series A at 72% vs 42% for traditional
+          startups, in 25.2 months vs 56 - GSSN data.<a class="cite" href="sources.md">[1]</a></li>
+        <li>Studios codify playbooks, networks, and institutional
+          knowledge as the durable intangible asset.<a class="cite" href="sources.md">[2]</a></li>
+        <li>Studios take 30-60% equity and embed teams, vs ~10-20% for a
+          lead VC - structurally closer to the operator.<a class="cite" href="sources.md">[3]</a></li>
+        <li>Studios run ~5 builds at once with the same team and reuse
+          infrastructure.<a class="cite" href="sources.md">[4]</a></li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Why a fund or a SaaS vendor cannot copy this</h3>
+      <ul>
+        <li>A pure fund does not see operator-grade data. It sees decks
+          and KPIs, not the daily decisions.</li>
+        <li>A SaaS vendor does not have the partner-side judgment that
+          shapes a "good" answer. They can serve the form; they cannot
+          generate the substance.</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>What 34V should do</h3>
+      <p>Instrument every skill so the partner correction and the
+      founder outcome both flow back to memory. The capture mechanic is
+      the product. Without it we are building search.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> The GSSN figures appear in third-party
+    citations rather than a single GSSN URL we could verify directly;
+    flag this caveat. Sources [1]-[4].
+  </div>
+</section>
+
+<!-- ============================ 4 ============================ -->
+<section class="slide">
+  <div class="num">04 / WHERE TO BUILD</div>
+  <h1>Memory is the moat. Co-pilot is the wedge. Monitoring is commoditised.</h1>
+  <h2 class="sub">Build order matters more than scope.</h2>
+
+  <div class="blocks">
+    <div class="block">
+      <h3>Claim</h3>
+      <p>Three layers: <b>Memory</b> (the studio brain), <b>Co-pilot</b>
+      (the surface founders touch), <b>Monitoring</b> (dashboards and
+      KPI capture). The moat is the first. The wedge is the second.
+      The third we should buy or integrate, not build.</p>
+    </div>
+    <div class="block">
+      <h3>Evidence that monitoring is solved</h3>
+      <ul>
+        <li>Standard Metrics serves 100+ VC firms and 10,000+ companies
+          with standardised data flows and benchmarking.<a class="cite" href="sources.md">[1]</a></li>
+        <li>Chronograph serves clients managing $4T+ in private capital,
+          with audit, validation and LP reporting built in.<a class="cite" href="sources.md">[2]</a></li>
+        <li>Affinity owns relationship intelligence as CRM and is the
+          default for sourcing.<a class="cite" href="sources.md">[3]</a></li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Why this beats "build it all"</h3>
+      <p>Monitoring is a race against three funded incumbents; we do
+      not win that race and it is not where our edge sits. The
+      operator playbook layer is where the studio is exposed and where
+      no one has shipped a credible product.<a class="cite" href="sources.md">[4]</a></p>
+    </div>
+    <div class="block">
+      <h3>What 34V should do</h3>
+      <p>Order: <b>(1)</b> wire the eight skills into a shared memory
+      with provenance; <b>(2)</b> ship one founder co-pilot surface
+      (office-hours assistant); <b>(3)</b> integrate Standard Metrics
+      or equivalent for monitoring. Do not build (3).</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> The "Memory layer is partly built" point ties
+    back to slide 1: the eight skills already contain the playbook
+    artifacts. We need provenance, retrieval, and feedback, not new
+    playbooks. Sources [1]-[4].
+  </div>
+</section>
+
+<!-- ============================ 5 ============================ -->
+<section class="slide">
+  <div class="num">05 / THE CO-PILOT DIAL</div>
+  <h1>Start advisory. Earn the right to operational.</h1>
+  <h2 class="sub">Autonomy is a dial, not a switch. Set it to "suggest" first.</h2>
+
+  <div class="blocks">
+    <div class="block">
+      <h3>Claim</h3>
+      <p>An AI that <i>advises</i> a founder is low-risk and high-trust.
+      An AI that <i>acts</i> on her behalf - books ads, sends outreach,
+      moves money - is high-risk and brittle. We start advisory across
+      the portfolio. We move task-by-task to operational only where
+      the volume, reversibility, and audit trail justify it.</p>
+    </div>
+    <div class="block">
+      <h3>Evidence</h3>
+      <ul>
+        <li>Only 21% of enterprises have mature governance for
+          autonomous agents.<a class="cite" href="sources.md">[1]</a></li>
+        <li>The AURA framework maps liability directly to delegated
+          authority and reversibility.<a class="cite" href="sources.md">[2]</a></li>
+        <li>Legal exposure compounds across user, configurator, and
+          vendor as autonomy increases.<a class="cite" href="sources.md">[3]</a></li>
+        <li>Copilots are the documented path that lets teams observe
+          AI capability before granting autonomy.<a class="cite" href="sources.md">[4]</a></li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Why this beats "agentic from day one"</h3>
+      <p>One unrecoverable mistake across the portfolio kills founder
+      trust faster than any feature wins it back. Starting advisory is
+      not timidity; it is the only sequence where the data we collect
+      is good enough to <i>earn</i> autonomy later.</p>
+    </div>
+    <div class="block">
+      <h3>What 34V should do</h3>
+      <p>Default: human-in-the-loop. Promote a task to operational
+      only when (a) it is high-volume, (b) reversible, (c) auditable,
+      and (d) two founders have used the advisory version for 30 days
+      without overrides. Track those four gates explicitly.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> The "dial" framing is the most important
+    governance decision in the deck. Tying the promotion criteria to
+    measurable gates is what stops "advisory" from becoming permanent
+    timidity. Sources [1]-[4].
+  </div>
+</section>
+
+<!-- ============================ 6 ============================ -->
+<section class="slide">
+  <div class="num">06 / LANDSCAPE</div>
+  <h1>Everyone owns the data layer. No one owns the playbook layer.</h1>
+  <h2 class="sub">The gap is structural, not a feature checklist.</h2>
+
+  <div class="blocks full">
+    <div class="block">
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>What it owns</th>
+            <th>What it leaves on the table</th>
+            <th>Src</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Affinity</b></td>
+            <td>Relationship CRM, sourcing pipeline, intros.</td>
+            <td>No operator-side playbook. No founder co-pilot.</td>
+            <td><a class="cite" href="sources.md">[3]</a></td>
+          </tr>
+          <tr>
+            <td><b>Standard Metrics</b></td>
+            <td>Portfolio KPI capture and benchmarking, 100+ VC firms.</td>
+            <td>Dashboards, not decisions. No memory across builds.</td>
+            <td><a class="cite" href="sources.md">[1]</a></td>
+          </tr>
+          <tr>
+            <td><b>Chronograph</b></td>
+            <td>Institutional PE/LP reporting; $4T+ in capital tracked.</td>
+            <td>Heavy for a studio. Not a founder-facing surface.</td>
+            <td><a class="cite" href="sources.md">[2]</a></td>
+          </tr>
+          <tr>
+            <td><b>CB Insights</b></td>
+            <td>Predictive market trends and intelligence.</td>
+            <td>Outside-in only. No operator data.</td>
+            <td><a class="cite" href="sources.md">[4]</a></td>
+          </tr>
+          <tr>
+            <td><b>PitchBook</b></td>
+            <td>Historical private-market deal and cap-table data.</td>
+            <td>Reference data, not workflow.</td>
+            <td><a class="cite" href="sources.md">[5]</a></td>
+          </tr>
+          <tr>
+            <td><b>Polsia</b></td>
+            <td>Autonomous AI-run micro-companies for non-operators.</td>
+            <td>Replaces the operator. Wrong audience for a studio.</td>
+            <td><a class="cite" href="sources.md">[6]</a></td>
+          </tr>
+          <tr>
+            <td><b>34V Second Brain</b></td>
+            <td>Operator playbook + studio memory + founder co-pilot.</td>
+            <td>The white space.</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> The table is deliberately one-line per row so
+    partners can read it cold. The point is the column "what it leaves
+    on the table" - the playbook layer is structurally absent, not
+    underbuilt. Sources [1]-[6].
+  </div>
+</section>
+
+<!-- ============================ 7 ============================ -->
+<section class="slide">
+  <div class="num">07 / STRUCTURE OPTIONS</div>
+  <h1>Three ways to own this. They are not equivalent.</h1>
+  <h2 class="sub">Internal IP, spinout, or studio-of-studios.</h2>
+
+  <div class="blocks full">
+    <div class="block">
+      <table>
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>What it is</th>
+            <th>Upside</th>
+            <th>Downside</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>A. Internal IP</b></td>
+            <td>Tool built and used inside 34V. Not sold.</td>
+            <td>Fastest. Tight feedback loop. No GTM tax. Compounds
+                directly into portfolio returns.</td>
+            <td>No outside revenue. Stays a cost center until proven.</td>
+          </tr>
+          <tr>
+            <td><b>B. Spinout</b></td>
+            <td>Productise and sell to other studios / VCs. Slack,
+                Basecamp and Asana all started internal then
+                spun out.<a class="cite" href="sources.md">[1][2][3]</a></td>
+            <td>Real revenue. External validation. Strategic asset
+                separable from the fund.</td>
+            <td>Portfolio management software is a crowded $3.94B
+                market growing at ~11.3% CAGR<a class="cite" href="sources.md">[4]</a> -
+                we would compete with funded incumbents.
+                Sales drag pulls focus off the studio.</td>
+          </tr>
+          <tr>
+            <td><b>C. Studio-of-studios</b></td>
+            <td>License our playbook + tooling to other regional
+                studios; take fees or carry.</td>
+            <td>Capital-light. Leverages the brand of "Morocco to
+                global". Network effects on data.</td>
+            <td>Requires the product to be proven first. Sales cycle
+                with sophisticated buyers. Reveals our edge.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> Present these fairly. Each could be right at
+    different times. The next slide takes a position; this one just
+    frames the choices. Sources [1]-[4].
+  </div>
+</section>
+
+<!-- ============================ 8 ============================ -->
+<section class="slide">
+  <div class="num">08 / RECOMMENDATION</div>
+  <h1>Build internal first. Instrument the data. Keep spinout optionality.</h1>
+  <h2 class="sub">You earn the right to a product. You do not design it up front.</h2>
+
+  <div class="blocks">
+    <div class="block decision">
+      <div class="recflag">Recommendation</div>
+      <p><b>Option A now, with the data plumbing required to switch
+      to B or C later.</b> Spend the next 90 days connecting the eight
+      Claude skills into one system with shared memory, provenance,
+      and a single founder co-pilot surface. Do not start a separate
+      product entity yet.</p>
+    </div>
+    <div class="block">
+      <h3>Why not B (spinout-first)</h3>
+      <p>Spinout-first means designing for hypothetical external
+      buyers before we have ten weeks of internal data. The crowded
+      monitoring market<a class="cite" href="sources.md">[4]</a> punishes
+      generic products. Internal-first is how Slack, Basecamp and
+      Asana actually got built<a class="cite" href="sources.md">[1][2][3]</a> - the
+      external product was the second act.</p>
+    </div>
+    <div class="block">
+      <h3>Why not C (studio-of-studios)</h3>
+      <p>A studio cannot license a playbook it has not yet stress-tested
+      against its own portfolio. C requires the product proof B never
+      gets to. We can keep C on the table; we cannot start there.</p>
+    </div>
+    <div class="block">
+      <h3>What "keep optionality" means concretely</h3>
+      <ul>
+        <li>Multi-tenant data model from day one (one tenant = 34V).</li>
+        <li>Per-skill provenance and feedback capture, exportable.</li>
+        <li>License terms in employment contracts that allow assignment
+          to a future entity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> "Keep optionality" is the load-bearing
+    commitment. Without the three concrete items in the bottom-right
+    block, "internal first" becomes "internal forever". Sources [1]-[4].
+  </div>
+</section>
+
+<!-- ============================ 9 ============================ -->
+<section class="slide">
+  <div class="num">09 / FAILURE MODES</div>
+  <h1>The risks are human. They are not technical.</h1>
+  <h2 class="sub">Shelfware kills more internal tools than bad code does.</h2>
+
+  <div class="blocks">
+    <div class="block">
+      <h3>Claim</h3>
+      <p>Three failure modes matter more than the tech: <b>(1)</b>
+      founders do not adopt; <b>(2)</b> our playbook is too idiosyncratic
+      to reuse across the portfolio; <b>(3)</b> the playbooks rot
+      because no one owns maintenance.</p>
+    </div>
+    <div class="block">
+      <h3>Evidence</h3>
+      <ul>
+        <li>~70% of digital transformations miss their objectives;
+          Gartner finds only 48% fully meet targets.<a class="cite" href="sources.md">[1]</a></li>
+        <li>Inadequate change management drives 42%+ of enterprise
+          software failures; 55% over budget, 68% over schedule.<a class="cite" href="sources.md">[2]</a></li>
+        <li>63% of organisations cite underutilised apps as a top
+          consolidation driver; 25-30% of IT spend is wasted.<a class="cite" href="sources.md">[3]</a></li>
+        <li>Shelfware is overwhelmingly an adoption / ownership
+          problem, not a feature problem.<a class="cite" href="sources.md">[4]</a></li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Why these risks beat the obvious ones</h3>
+      <p>"Will the model hallucinate?" is a 2024 question. The 2026
+      question is: will the founder open it on a Tuesday morning, and
+      will the playbook still be true six months from now? Hallucination
+      is mitigated by retrieval and review. Adoption and maintenance
+      are mitigated by ownership and rituals - which we do not yet have.</p>
+    </div>
+    <div class="block">
+      <h3>What 34V should do</h3>
+      <ul>
+        <li>Embed the co-pilot inside <b>existing rituals</b>: office
+          hours, weekly founder check-ins, IC prep. Do not ask
+          founders to visit a new tool.</li>
+        <li>Name a single <b>playbook owner</b> per skill, accountable
+          for quarterly review. Treat playbooks like code: they need a
+          maintainer or they die.</li>
+        <li>Define adoption KPIs before launch: weekly active partners,
+          weekly active founders, correction-rate trend.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> The cheapest mistake we can make is treating
+    this as an engineering project. The expensive one is treating it
+    as one and learning it was a change-management project six months
+    in. Sources [1]-[4].
+  </div>
+</section>
+
+<!-- ============================ 10 ============================ -->
+<section class="slide">
+  <div class="num">10 / DECISION</div>
+  <h1>The decision we are asking for today.</h1>
+  <h2 class="sub">One yes, one owner, one date.</h2>
+
+  <div class="blocks">
+    <div class="block decision">
+      <div class="recflag">Decision requested</div>
+      <p><b>Approve a 90-day internal build</b> that connects the
+      eight existing Claude skills into one system - shared memory,
+      provenance, a single founder co-pilot surface, and the
+      optionality scaffolding from slide 8.</p>
+      <p class="small">Scope explicitly excludes: building portfolio
+      monitoring, building Polsia-style autonomous agents, or starting
+      a spinout entity.</p>
+    </div>
+    <div class="block">
+      <h3>Concrete next step (this week)</h3>
+      <ul>
+        <li><b>Owner:</b> name a single partner accountable for the
+          90-day build.</li>
+        <li><b>Pilot:</b> pick one portfolio company already using
+          office-hours rituals.</li>
+        <li><b>Date:</b> v1 live in 30 days; review at 60; first
+          adoption KPI cut at 90.</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>What "yes" buys us</h3>
+      <ul>
+        <li>A working second brain across the portfolio.</li>
+        <li>The data to decide, with evidence, between B and C in Q4.</li>
+        <li>A defensible position before the category gets defined by
+          someone selling to funds.</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>What "no" costs us</h3>
+      <p>Nine months from now we will be evaluating other people's
+      products built on data we should already own. The skills will
+      still exist, but disconnected. The flywheel will not have started.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <b>Speaker notes.</b> Close on the date, not the vision. The single
+    measurable commitment that matters is v1 in 30 days. Everything
+    else flows from that.
+  </div>
+</section>
+
+<!-- ============================ APPENDIX ============================ -->
+<section class="slide">
+  <div class="num">APPENDIX / SOURCES</div>
+  <h1>Sources</h1>
+  <h2 class="sub">Full citations in <a href="sources.md">sources.md</a>.</h2>
+
+  <div class="blocks full">
+    <div class="block">
+      <ul style="columns: 2; column-gap: 40px;">
+        <li>Affinity, <i>Private capital predictions for 2026</i>.</li>
+        <li>Affinity, <i>Unlocking the power of AI in venture capital</i>.</li>
+        <li>Affinity, <i>10 AI Tools for VC 2026</i>.</li>
+        <li>Latent Space / TeamDay, Polsia interview, Feb 2026.</li>
+        <li>Context Studios, <i>Polsia: $1M ARR in 30 days</i>.</li>
+        <li>andrew.ooo, <i>Polsia: $1.5M ARR in 30 days</i>.</li>
+        <li>henrythe9th, <i>Solo Founder + 6,000 Companies</i>.</li>
+        <li>GSSN via Bundl, <i>Why studio startups outperform</i>.</li>
+        <li>Mandalore Partners, <i>Studios &amp; intangible assets</i>.</li>
+        <li>Esinli Capital, <i>Studio vs VC fund</i>.</li>
+        <li>High Alpha, <i>What is a venture studio</i>.</li>
+        <li>Standard Metrics, <i>Top VC tech stack 2025</i>.</li>
+        <li>Chronograph, product site.</li>
+        <li>Atlan, <i>Autonomous agents vs copilots</i>.</li>
+        <li>arXiv 2510.15739, <i>AURA framework</i>.</li>
+        <li>Foley &amp; Lardner, <i>Agentic AI liability 2026</i>.</li>
+        <li>Domo, <i>Copilots vs agents</i>.</li>
+        <li>Otio, <i>CB Insights vs PitchBook</i>.</li>
+        <li>PitchBook profile (cbinsights).</li>
+        <li>Slack, Basecamp, Asana origin references.</li>
+        <li>Grand View Research, <i>Portfolio mgmt software market</i>.</li>
+        <li>MeltingSpot, <i>Digital transformation failure 2025</i>.</li>
+        <li>Sci-Tech Today, <i>ERP statistics 2025</i>.</li>
+        <li>Integrate.io, <i>Data integration adoption 2026</i>.</li>
+        <li>Marlborough Street, <i>Don't let it become shelfware</i>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="controls"><span id="counter">1 / 12</span> &nbsp; <span class="small">arrow keys</span></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const bar = document.getElementById('bar');
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    counter.textContent = (i + 1) + ' / ' + slides.length;
+    bar.style.width = ((i + 1) / slides.length * 100) + '%';
+    if (history && history.replaceState) {
+      history.replaceState(null, '', '#' + (i + 1));
+    }
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'PageUp')                    { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') { show(0); }
+    if (e.key === 'End')  { show(slides.length - 1); }
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    const x = e.clientX, w = window.innerWidth;
+    if (x > w * 0.6) show(i + 1);
+    else if (x < w * 0.4) show(i - 1);
+  });
+  const hash = parseInt((location.hash || '#1').slice(1), 10);
+  show(isNaN(hash) ? 0 : hash - 1);
+</script>
+</body>
+</html>
