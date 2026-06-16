@@ -17,6 +17,9 @@
     --green: #2e5d4a;
     --green-soft: rgba(46, 93, 74, 0.08);
     --red: #a8443a;
+    --red-soft: rgba(168, 68, 58, 0.08);
+    --blue: #335d7e;
+    --blue-soft: rgba(51, 93, 126, 0.08);
     --rule: #ddd2bd;
   }
   * { box-sizing: border-box; }
@@ -26,7 +29,7 @@
     background: var(--bg);
     color: var(--ink);
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
@@ -35,7 +38,7 @@
     position: absolute; inset: 0;
     display: none;
     overflow: hidden;
-    padding: 56px 72px 64px 72px;
+    padding: 50px 64px 56px 64px;
   }
   .slide.active { display: flex; flex-direction: column; }
   .kicker {
@@ -49,33 +52,33 @@
   .kicker .sep { color: var(--rule); margin: 0 10px; }
   h1.title {
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 36px;
-    line-height: 1.15;
+    font-size: 32px;
+    line-height: 1.18;
     font-weight: 600;
     margin: 10px 0 0 0;
     letter-spacing: -0.012em;
     max-width: 1000px;
   }
   h1.title em { color: var(--accent); font-style: normal; }
-  .body { margin-top: 28px; flex: 1; min-height: 0; }
+  .body { margin-top: 24px; flex: 1; min-height: 0; }
   p { margin: 0 0 14px 0; }
   p.lede {
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 19px;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.45;
     color: var(--ink-2);
   }
-  .ref { color: var(--mute); font-size: 13px; }
+  .ref { color: var(--mute); font-size: 12.5px; }
   .ref em { color: var(--ink-2); font-style: normal; font-weight: 500; }
   .footer {
-    position: absolute; left: 72px; right: 72px; bottom: 22px;
+    position: absolute; left: 64px; right: 64px; bottom: 18px;
     display: flex; justify-content: space-between; align-items: baseline;
-    color: var(--mute); font-size: 12px;
+    color: var(--mute); font-size: 11px;
   }
   .footer .brand { letter-spacing: 0.16em; text-transform: uppercase; }
   .progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; background: transparent; z-index: 5; }
   .progress > div { height: 100%; background: var(--accent); width: 0; transition: width .2s; }
-  .controls { position: fixed; right: 16px; bottom: 8px; color: var(--mute); font-size: 11px; }
+  .controls { position: fixed; right: 14px; bottom: 6px; color: var(--mute); font-size: 11px; }
   a { color: var(--accent); }
 
   /* ---------- COVER ---------- */
@@ -86,286 +89,290 @@
     margin: 0 0 20px 0; max-width: 900px;
   }
   .cover h1 em { color: var(--accent); font-style: normal; }
-  .cover .sub { color: var(--mute); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .cover .sub { color: var(--mute); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
   .cover .tagline { color: var(--ink-2); font-size: 18px; margin-top: 28px; max-width: 600px; }
 
-  /* ---------- LAYOUT: STAT HERO ---------- */
-  .stat-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; height: 100%; }
+  /* ---------- STAT HERO ---------- */
+  .stat-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; height: 100%; }
   .stat-num {
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 200px; line-height: 0.95; font-weight: 600;
+    font-size: 150px; line-height: 0.95; font-weight: 600;
     color: var(--accent); letter-spacing: -0.04em;
   }
-  .stat-cap { color: var(--ink-2); font-size: 18px; line-height: 1.4; margin-top: 12px; }
+  .stat-num .small { font-size: 80px; }
+  .stat-cap { color: var(--ink-2); font-size: 17px; line-height: 1.4; margin-top: 12px; max-width: 440px; }
   .stat-cap b { color: var(--ink); font-weight: 600; }
   .stat-src { color: var(--mute); font-size: 12px; margin-top: 8px; }
   .stat-side h2 {
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 24px; line-height: 1.25; margin: 0 0 14px 0; font-weight: 500;
+    font-size: 22px; line-height: 1.25; margin: 0 0 12px 0; font-weight: 500;
   }
-  .stat-side p { color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+  .stat-side p { color: var(--ink-2); font-size: 14.5px; line-height: 1.55; }
   .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
   .pill {
     background: var(--accent-soft); color: var(--accent);
     padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 500;
   }
+  .corrob {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+    margin-top: 14px;
+  }
+  .corrob .c {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .corrob .c b { font-family: "Iowan Old Style", "Charter", Georgia, serif; color: var(--accent); font-size: 20px; display: block; }
+  .corrob .c span { font-size: 11.5px; color: var(--mute); line-height: 1.35; display: block; margin-top: 2px; }
 
-  /* ---------- LAYOUT: SPLIT ---------- */
-  .split { display: grid; grid-template-columns: 0.85fr 1fr; gap: 56px; height: 100%; }
-  .split .left { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 28px; }
+  /* ---------- SPLIT ---------- */
+  .split { display: grid; grid-template-columns: 0.85fr 1fr; gap: 44px; height: 100%; }
+  .split .left { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 24px; }
   .split .left .label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
-  .split .left .name { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 32px; margin: 6px 0 18px 0; font-weight: 600; }
+  .split .left .name { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 28px; margin: 6px 0 14px 0; font-weight: 600; }
   .split .left dl { margin: 0; }
-  .split .left dt { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); margin-top: 14px; }
-  .split .left dd { margin: 4px 0 0 0; color: var(--ink); font-size: 15px; }
-  .split .right p { color: var(--ink-2); font-size: 16px; line-height: 1.55; }
-  .stinger {
-    margin-top: 20px;
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 22px; line-height: 1.3; color: var(--accent);
-  }
+  .split .left dt { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); margin-top: 12px; }
+  .split .left dd { margin: 4px 0 0 0; color: var(--ink); font-size: 14px; line-height: 1.45; }
+  .split .right p { color: var(--ink-2); font-size: 14.5px; line-height: 1.55; }
+  .split .right .lede { color: var(--ink); font-size: 19px; line-height: 1.4; margin-bottom: 12px; }
 
-  /* ---------- LAYOUT: FLYWHEEL ---------- */
-  .flywheel-stage {
-    display: flex; align-items: center; justify-content: space-between;
-    margin: 30px 0 36px 0;
+  /* ---------- CATEGORY 4-CARDS ---------- */
+  .category-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px;
+    margin-bottom: 18px;
   }
-  .flywheel-node {
-    flex: 1;
-    background: var(--panel); border: 1px solid var(--rule);
-    border-radius: 14px; padding: 20px; text-align: center;
+  .cat-card {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 16px 16px 14px 16px;
   }
+  .cat-card .meta {
+    font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--mute);
+  }
+  .cat-card .name {
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    font-size: 22px; font-weight: 600; margin: 4px 0 8px 0;
+  }
+  .cat-card .what { color: var(--ink-2); font-size: 13px; line-height: 1.45; margin: 0 0 10px 0; }
+  .cat-card .stand {
+    border-top: 1px dashed var(--rule); padding-top: 10px;
+    font-size: 12px; color: var(--ink); line-height: 1.45;
+  }
+  .cat-card .stand b { color: var(--accent); display: block; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
+  .cat-take {
+    background: var(--ink); color: var(--bg);
+    padding: 18px 22px; border-radius: 10px;
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    font-size: 17px; line-height: 1.45;
+  }
+  .cat-take em { color: var(--accent); font-style: normal; }
+
+  /* ---------- FLYWHEEL ---------- */
+  .flywheel-stage { display: flex; align-items: center; justify-content: space-between; margin: 24px 0 30px 0; }
+  .flywheel-node { flex: 1; background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 18px; text-align: center; }
   .flywheel-node .n {
-    width: 32px; height: 32px; border-radius: 50%;
+    width: 30px; height: 30px; border-radius: 50%;
     background: var(--accent); color: white;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 14px;
-    margin: 0 auto 12px auto;
+    font-weight: 700; font-size: 13px;
+    margin: 0 auto 10px auto;
   }
-  .flywheel-node h3 {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 17px; margin: 0 0 6px 0; font-weight: 600;
-  }
-  .flywheel-node p { font-size: 13px; color: var(--mute); margin: 0; line-height: 1.4; }
-  .flywheel-arrow { color: var(--accent); font-size: 28px; margin: 0 6px; user-select: none; }
-  .flywheel-take {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
-  }
-  .flywheel-take p { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+  .flywheel-node h3 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 16px; margin: 0 0 6px 0; font-weight: 600; }
+  .flywheel-node p { font-size: 12.5px; color: var(--mute); margin: 0; line-height: 1.4; }
+  .flywheel-arrow { color: var(--accent); font-size: 26px; margin: 0 6px; user-select: none; }
+  .flywheel-take { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .flywheel-take p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
 
-  /* ---------- LAYOUT: DATA SUBSTRATE ---------- */
-  .substrate {
-    display: grid; grid-template-columns: 1.4fr 1fr; gap: 44px; height: 100%;
-  }
-  .data-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
-  .chip {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
-    padding: 14px 16px;
-  }
-  .chip .label { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-weight: 600; font-size: 15px; }
-  .chip .desc { font-size: 12.5px; color: var(--mute); margin-top: 4px; line-height: 1.4; }
+  /* ---------- DATA SUBSTRATE ---------- */
+  .substrate { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; height: 100%; }
+  .data-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+  .chip { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; }
+  .chip .label { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-weight: 600; font-size: 14px; }
+  .chip .desc { font-size: 12px; color: var(--mute); margin-top: 3px; line-height: 1.4; }
   .chip.warm { background: var(--accent-soft); border-color: var(--accent); }
-  .substrate .side { display: flex; flex-direction: column; gap: 18px; }
+  .substrate .side { display: flex; flex-direction: column; gap: 14px; }
   .pullquote {
     background: var(--ink); color: var(--bg);
-    border-radius: 14px; padding: 22px 24px;
+    border-radius: 14px; padding: 20px 22px;
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 19px; line-height: 1.35;
+    font-size: 18px; line-height: 1.35;
   }
   .pullquote em { color: var(--accent); font-style: normal; }
-  .order-note { font-size: 13px; color: var(--ink-2); border-left: 3px solid var(--accent); padding-left: 12px; }
+  .order-note { font-size: 12.5px; color: var(--ink-2); border-left: 3px solid var(--accent); padding-left: 12px; }
 
-  /* ---------- LAYOUT: VIGNETTE GRID (studio) ---------- */
-  .vignette-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .v-card {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
-    padding: 18px 18px 16px 18px;
-    position: relative;
-  }
+  /* ---------- VIGNETTE GRID ---------- */
+  .vignette-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .v-card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 16px; position: relative; }
   .v-card .num {
-    position: absolute; top: 16px; right: 18px;
+    position: absolute; top: 14px; right: 16px;
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 32px; line-height: 1; color: var(--accent-soft);
-    font-weight: 700;
+    font-size: 28px; line-height: 1; color: var(--accent-soft); font-weight: 700;
   }
-  .v-card h3 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 17px; margin: 0 0 8px 0; font-weight: 600; padding-right: 28px; }
-  .v-card p { font-size: 13.5px; color: var(--ink-2); margin: 0; line-height: 1.5; }
-  .takeaway-bar {
-    margin-top: 18px;
-    background: var(--panel-warm);
-    border-radius: 10px; padding: 14px 18px;
-    color: var(--ink-2); font-size: 14px;
-  }
+  .v-card h3 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 15px; margin: 0 0 6px 0; font-weight: 600; padding-right: 26px; }
+  .v-card p { font-size: 12.5px; color: var(--ink-2); margin: 0; line-height: 1.5; }
+  .takeaway-bar { margin-top: 14px; background: var(--panel-warm); border-radius: 10px; padding: 12px 16px; color: var(--ink-2); font-size: 13.5px; }
   .takeaway-bar b { color: var(--accent); }
-
-  /* ---------- LAYOUT: VIGNETTE GRID (founder, alternate treatment) ---------- */
-  .vignette-grid.alt .v-card {
-    background: var(--green-soft); border-color: var(--green);
-  }
+  .vignette-grid.alt .v-card { background: var(--green-soft); border-color: var(--green); }
   .vignette-grid.alt .v-card .num { color: rgba(46,93,74,0.18); }
   .vignette-grid.alt .v-card h3 { color: var(--green); }
 
-  /* ---------- LAYOUT: PATTERN ENGINE ---------- */
-  .pattern { display: grid; grid-template-columns: 1fr 1.2fr; gap: 44px; height: 100%; align-items: center; }
-  .pattern-diagram { position: relative; padding: 20px 0; }
+  /* ---------- TRUST TIERS ---------- */
+  .tiers { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  /* ---------- PATTERN ENGINE ---------- */
+  .pattern { display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px; height: 100%; align-items: center; }
+  .pattern-diagram { position: relative; padding: 12px 0; }
   .hub {
     background: var(--accent); color: white;
-    width: 130px; height: 130px;
-    border-radius: 50%; margin: 0 auto;
+    width: 120px; height: 120px; border-radius: 50%; margin: 0 auto;
     display: flex; align-items: center; justify-content: center;
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-weight: 600; font-size: 17px; text-align: center;
+    font-weight: 600; font-size: 15px; text-align: center;
     box-shadow: 0 8px 28px rgba(184,118,42,0.30);
   }
-  .nodes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 28px; }
-  .nodes .n {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
-    padding: 12px; text-align: center;
-  }
-  .nodes .n .co { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-weight: 600; font-size: 14px; }
-  .nodes .n .what { font-size: 11px; color: var(--mute); margin-top: 4px; line-height: 1.3; }
-  .pattern-side h2 {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 22px; line-height: 1.3; margin: 0 0 14px 0; font-weight: 500;
-  }
-  .pattern-side p { color: var(--ink-2); font-size: 14.5px; line-height: 1.55; }
+  .nodes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 22px; }
+  .nodes .n { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 10px; text-align: center; }
+  .nodes .n .co { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-weight: 600; font-size: 13px; }
+  .nodes .n .what { font-size: 10.5px; color: var(--mute); margin-top: 3px; line-height: 1.3; }
+  .pattern-side h2 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 20px; line-height: 1.3; margin: 0 0 12px 0; font-weight: 500; }
+  .pattern-side p { color: var(--ink-2); font-size: 13.5px; line-height: 1.55; }
   .pattern-side .warn {
-    margin-top: 14px;
+    margin-top: 12px;
     background: var(--accent-soft); border-left: 3px solid var(--accent);
-    padding: 12px 14px; font-size: 13.5px; color: var(--ink);
+    padding: 10px 12px; font-size: 12.5px; color: var(--ink);
     border-radius: 0 8px 8px 0;
   }
+  .moat-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-top: 14px;
+  }
+  .moat-row .mc {
+    background: var(--blue-soft); border-left: 3px solid var(--blue);
+    padding: 10px 12px; font-size: 12px; color: var(--ink);
+    border-radius: 0 8px 8px 0;
+  }
+  .moat-row .mc b { color: var(--blue); display: block; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
 
-  /* ---------- LAYOUT: DIAL ---------- */
-  .dial-rows { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
-  .dial-row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; }
-  .dial-bar { height: 56px; border-radius: 8px; display: flex; align-items: center; padding: 0 20px; color: white; font-weight: 500; font-size: 14px; }
+  /* ---------- ROADMAP ---------- */
+  .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .phase {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 20px; display: flex; flex-direction: column;
+  }
+  .phase.now { border-color: var(--accent); }
+  .phase .when {
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    color: var(--accent); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .phase .label { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 22px; margin: 4px 0 14px 0; font-weight: 600; }
+  .phase .scope { font-size: 12.5px; color: var(--mute); margin-bottom: 10px; line-height: 1.45; }
+  .phase ul { list-style: none; padding: 0; margin: 0; }
+  .phase li {
+    font-size: 12.5px; color: var(--ink-2); margin-bottom: 8px;
+    line-height: 1.4; padding-left: 16px; position: relative;
+  }
+  .phase li::before {
+    content: "→"; position: absolute; left: 0; color: var(--accent);
+    font-weight: 600;
+  }
+  .phase.future li::before { content: "→"; color: var(--blue); }
+  .roadmap-note {
+    margin-top: 14px;
+    font-size: 12.5px; color: var(--mute); font-style: italic; text-align: center;
+  }
+
+  /* ---------- DIAL ---------- */
+  .dial-rows { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+  .dial-row { display: grid; grid-template-columns: 190px 1fr; gap: 22px; align-items: center; }
+  .dial-bar { height: 50px; border-radius: 8px; display: flex; align-items: center; padding: 0 18px; color: white; font-weight: 500; font-size: 13px; }
   .dial-bar.advisory { background: var(--accent); width: 100%; }
   .dial-bar.assisted { background: rgba(184,118,42,0.55); width: 70%; }
   .dial-bar.operational { background: rgba(184,118,42,0.30); color: var(--ink); width: 40%; }
-  .dial-stage {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-weight: 600; font-size: 18px;
-  }
+  .dial-stage { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-weight: 600; font-size: 17px; }
   .dial-stage .when { display: block; font-family: "Inter", sans-serif; font-size: 11px; color: var(--mute); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; margin-top: 2px; }
-  .gates {
-    margin-top: 26px;
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
-    padding: 18px 22px;
+  .market-check {
+    margin-top: 16px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
   }
-  .gates h4 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 15px; margin: 0 0 10px 0; font-weight: 600; }
-  .gates ol { margin: 0; padding-left: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; }
-  .gates li { font-size: 13px; color: var(--ink-2); }
-  .gates li b { display: block; color: var(--accent); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .market-check .mc {
+    background: var(--panel-warm); border-radius: 8px; padding: 10px 12px;
+    font-size: 11.5px; color: var(--ink-2); line-height: 1.45;
+  }
+  .market-check .mc b { color: var(--accent); display: block; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+  .gates { margin-top: 14px; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 18px; }
+  .gates h4 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 14px; margin: 0 0 8px 0; font-weight: 600; }
+  .gates ol { margin: 0; padding-left: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+  .gates li { font-size: 12px; color: var(--ink-2); }
+  .gates li b { display: block; color: var(--accent); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
 
-  /* ---------- LAYOUT: LANDSCAPE TABLE ---------- */
-  table.landscape { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  table.landscape th, table.landscape td { text-align: left; padding: 10px 12px; vertical-align: top; border-bottom: 1px solid var(--rule); }
-  table.landscape th { color: var(--accent); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
-  table.landscape tbody tr:last-child td {
-    background: var(--accent-soft);
-    border-bottom: none;
+  /* ---------- LANDSCAPE ---------- */
+  .landscape-groups { display: flex; flex-direction: column; gap: 14px; }
+  .lgroup {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 14px 18px;
   }
-  table.landscape tbody tr:last-child td:first-child {
-    font-weight: 600; color: var(--accent);
+  .lgroup .lhead {
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    font-size: 13px; color: var(--accent); font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 8px;
   }
+  .lgroup table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .lgroup table td { padding: 5px 0; vertical-align: top; }
+  .lgroup table td:first-child { font-weight: 600; width: 160px; color: var(--ink); }
+  .lgroup table td:last-child { color: var(--ink-2); }
+  .lgroup.own { background: var(--accent-soft); border-color: var(--accent); }
+  .lgroup.own td:first-child { color: var(--accent); }
 
-  /* ---------- LAYOUT: STRUCTURE 3 ---------- */
-  .struct { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
-  .struct .opt {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
-    padding: 22px; position: relative;
-  }
-  .struct .opt.rec {
-    background: var(--ink); color: var(--bg); border-color: var(--ink);
-  }
+  /* ---------- STRUCTURE ---------- */
+  .struct { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .struct .opt { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 20px; position: relative; }
+  .struct .opt.rec { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .struct .opt.rec p { color: rgba(247,243,234,0.85); }
-  .struct .opt .letter {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 14px; letter-spacing: 0.16em; color: var(--accent);
-    font-weight: 600;
-  }
-  .struct .opt h3 {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 22px; margin: 4px 0 14px 0; font-weight: 600;
-  }
-  .struct .opt p { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin: 0 0 10px 0; }
+  .struct .opt .letter { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 13px; letter-spacing: 0.16em; color: var(--accent); font-weight: 600; }
+  .struct .opt h3 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 20px; margin: 4px 0 12px 0; font-weight: 600; }
+  .struct .opt p { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; margin: 0 0 8px 0; }
   .struct .opt .badge {
-    position: absolute; top: 16px; right: 16px;
+    position: absolute; top: 14px; right: 14px;
     background: var(--accent); color: white;
     font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 600; padding: 4px 9px; border-radius: 4px;
+    font-weight: 600; padding: 3px 8px; border-radius: 4px;
   }
-  .opt-note {
-    margin-top: 18px;
-    background: var(--panel-warm); border-radius: 10px; padding: 14px 18px;
-    color: var(--ink-2); font-size: 13.5px;
-  }
+  .opt-note { margin-top: 14px; background: var(--panel-warm); border-radius: 10px; padding: 12px 16px; color: var(--ink-2); font-size: 12.5px; }
   .opt-note b { color: var(--accent); }
   .opt-note ol { margin: 6px 0 0 0; padding-left: 18px; }
   .opt-note li { margin-bottom: 3px; }
 
-  /* ---------- LAYOUT: RISK 3 ---------- */
-  .risks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
-  .risk {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
-    padding: 22px; position: relative; overflow: hidden;
-  }
-  .risk .num {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 56px; line-height: 1; color: var(--red); opacity: 0.18;
-    position: absolute; top: 14px; right: 18px; font-weight: 700;
-  }
-  .risk h3 {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 18px; margin: 0 0 10px 0; font-weight: 600; padding-right: 40px;
-  }
-  .risk p { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin: 0; }
-  .risk .stat { font-size: 12px; color: var(--mute); margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--rule); }
-  .risk-take {
-    margin-top: 16px; font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 18px; color: var(--ink-2); line-height: 1.4;
-  }
+  /* ---------- RISKS ---------- */
+  .risks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .risk { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 20px; position: relative; overflow: hidden; }
+  .risk .num { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 52px; line-height: 1; color: var(--red); opacity: 0.18; position: absolute; top: 12px; right: 16px; font-weight: 700; }
+  .risk h3 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 16px; margin: 0 0 8px 0; font-weight: 600; padding-right: 36px; }
+  .risk p { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; margin: 0; }
+  .risk .stat { font-size: 11.5px; color: var(--mute); margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--rule); }
+  .risk-take { margin-top: 14px; font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 16px; color: var(--ink-2); line-height: 1.4; }
   .risk-take em { color: var(--accent); font-style: normal; }
 
-  /* ---------- LAYOUT: DECISION ---------- */
-  .decision-hero { display: grid; grid-template-columns: 1fr 0.8fr; gap: 44px; height: 100%; align-items: center; }
-  .decision-hero h2 {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 44px; line-height: 1.1; margin: 0 0 18px 0; font-weight: 600;
-  }
+  /* ---------- DECISION ---------- */
+  .decision-hero { display: grid; grid-template-columns: 1fr 0.8fr; gap: 40px; height: 100%; align-items: center; }
+  .decision-hero h2 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 40px; line-height: 1.1; margin: 0 0 16px 0; font-weight: 600; }
   .decision-hero h2 em { color: var(--accent); font-style: normal; }
-  .decision-hero p.scope { color: var(--ink-2); font-size: 15px; }
-  .decision-hero .outscope { color: var(--mute); font-size: 13px; margin-top: 8px; }
+  .decision-hero p.scope { color: var(--ink-2); font-size: 14px; }
+  .decision-hero .outscope { color: var(--mute); font-size: 12.5px; margin-top: 6px; }
   .decision-side .step-list { list-style: none; margin: 0; padding: 0; }
-  .decision-side .step-list li { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
-  .decision-side .step-list .n {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: var(--accent); color: white;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 13px; flex-shrink: 0;
-  }
-  .decision-side .step-list .t { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
-  .decision-side .step-list .t b { color: var(--ink); display: block; font-size: 13.5px; font-weight: 600; }
-  .timeline {
-    margin-top: 20px;
-    background: var(--ink); color: var(--bg);
-    border-radius: 12px; padding: 16px 20px;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-  }
-  .timeline .t {
-    text-align: center;
-  }
-  .timeline .t .when {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 22px; font-weight: 600; color: var(--accent);
-  }
-  .timeline .t .what { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+  .decision-side .step-list li { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+  .decision-side .step-list .n { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+  .decision-side .step-list .t { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+  .decision-side .step-list .t b { color: var(--ink); display: block; font-size: 13px; font-weight: 600; }
+  .timeline { margin-top: 18px; background: var(--ink); color: var(--bg); border-radius: 12px; padding: 14px 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .timeline .t { text-align: center; }
+  .timeline .t .when { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 20px; font-weight: 600; color: var(--accent); }
+  .timeline .t .what { font-size: 10.5px; opacity: 0.8; margin-top: 2px; }
 
   /* ---------- APPENDIX ---------- */
-  .appendix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 32px; font-size: 13.5px; }
-  .appendix-grid .group h4 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 15px; margin: 0 0 6px 0; color: var(--accent); }
-  .appendix-grid .group p { font-size: 13px; color: var(--ink-2); line-height: 1.5; margin: 0; }
+  .appendix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; font-size: 12.5px; }
+  .appendix-grid .group h4 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 14px; margin: 0 0 4px 0; color: var(--accent); }
+  .appendix-grid .group p { font-size: 12px; color: var(--ink-2); line-height: 1.5; margin: 0; }
 </style>
 </head>
 <body>
@@ -380,21 +387,26 @@
   <p class="tagline">Connect what we already have. Earn the right to a product.</p>
 </section>
 
-<!-- =================== 1 - WHY NOW (stat hero) =================== -->
+<!-- =================== 1 - WHY NOW (value creation) =================== -->
 <section class="slide">
   <p class="kicker">01 <span class="sep">/</span> Why now</p>
-  <h1 class="title">AI in VC is mainstream. <em>Studio-native tooling is not.</em></h1>
+  <h1 class="title">AI moves EBITDA. <em>The question isn't whether to use it. It's whether to operationalise it across the portfolio.</em></h1>
 
   <div class="body stat-hero">
     <div>
-      <div class="stat-num">85<span style="font-size:120px;">%</span></div>
-      <div class="stat-cap">of <b>VC dealmakers</b> use AI to automate daily tasks today.</div>
-      <div class="stat-src">Up from 76% a year ago. Affinity 2026 survey, ~300 firms.</div>
+      <div class="stat-num">20<span class="small">-25%</span></div>
+      <div class="stat-cap"><b>EBITDA gains</b> PE operating partners are driving with AI in portfolio companies today.</div>
+      <div class="stat-src">Korn Ferry, AI Assembly Lines, Withum (2026).</div>
+      <div class="corrob">
+        <div class="c"><b>2-4x</b><span>Annualised EBITDA uplift per $1 invested in AI transformation (Withum)</span></div>
+        <div class="c"><b>15-30%</b><span>Cost reductions on targeted processes inside the first 24 months</span></div>
+        <div class="c"><b>15-20%</b><span>Reduction in addressable procurement spend, delivered in 90-180 days</span></div>
+      </div>
     </div>
     <div class="stat-side">
-      <h2>The tooling is built for funds. We're not a fund.</h2>
-      <p>Sourcing, diligence, monitoring, LP reporting - all touched. But the whole stack assumes a fund, not an operating studio. Wait twelve months & the category gets defined by Affinity, Standard Metrics, Chronograph. We retrofit their products to a model they weren't designed for.</p>
-      <p>The good news: we're not starting from zero. Eight Claude skills already run today.</p>
+      <h2>We don't bet on adoption. We operationalise the lever.</h2>
+      <p>The PE world figured this out first. "AI Operating Partner" is now a job title at the bigger funds. A studio that doesn't wire the same lever across a co-built portfolio leaves the compounding on the table.</p>
+      <p>The good news: we're not starting from zero. Eight Claude skills are already in production inside 34V today.</p>
       <div class="pill-row">
         <span class="pill">memos</span>
         <span class="pill">GTM &amp; 90-day plans</span>
@@ -405,47 +417,102 @@
         <span class="pill">competitive maps</span>
         <span class="pill">financial models</span>
       </div>
-      <p style="margin-top:14px; color:var(--ink); font-weight:500;">90 days to connect what we have. Not to build new playbooks.</p>
+      <p style="margin-top:12px; color:var(--ink); font-weight:500; font-size:14.5px;">90 days to connect what we have. Not to build new playbooks.</p>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>01 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>01 / 16</span></div>
 </section>
 
-<!-- =================== 2 - POLSIA (split) =================== -->
+<!-- =================== 2 - POLSIA DEEPER =================== -->
 <section class="slide">
   <p class="kicker">02 <span class="sep">/</span> Polsia</p>
-  <h1 class="title">Polsia is the wrong template for us.</h1>
+  <h1 class="title">Polsia is the most-cited reference in this space. <em>It is not our shape.</em></h1>
 
   <div class="body split">
     <div class="left">
-      <div class="label">Reference point</div>
+      <div class="label">Reference</div>
       <div class="name">Polsia</div>
       <dl>
         <dt>Founder</dt>
-        <dd>Ben Broca</dd>
+        <dd>Ben Broca (solo). Demoed on Latent Space with Swyx, Feb 26 2026.</dd>
         <dt>Traction</dt>
-        <dd>$1M ARR at launch (Feb 2026, Latent Space). $6M+ ARR & 5-6k companies a few weeks later.</dd>
+        <dd>$1M ARR at launch. $6M+ ARR & 5-6,000 companies a few weeks later.</dd>
         <dt>Loop</dt>
-        <dd>AI CEO wakes nightly, executes, emails the founder in the morning.</dd>
+        <dd>AI CEO wakes nightly, executes against a goal, emails the founder in the morning.</dd>
         <dt>Stack</dt>
-        <dd>Provisions email, Render, Neon, Stripe, GitHub per company.</dd>
-        <dt>Pricing</dt>
+        <dd>Provisions email, Render, Neon, Stripe, GitHub per company. Zero user setup.</dd>
+        <dt>Model</dt>
         <dd>Subscription + 20% of revenue.</dd>
       </dl>
     </div>
     <div class="right">
-      <p class="lede">It's a sharp product. It's just not for our audience.</p>
-      <p>Polsia is built for people who want to push a button & have a company run on their behalf. Our portfolio has operators. They don't want an AI CEO. They want leverage on the playbook the studio has built.</p>
-      <p>I think we steal exactly one thing from Polsia - the daily nudge loop - and reject the rest. Position the brain as a co-pilot that lives in Slack, email, and the docs founders already use. Not a new entity that demands attention.</p>
-      <div class="stinger">Steal the loop. Reject the CEO.</div>
+      <p class="lede">Sharp product. Wrong audience.</p>
+      <p>What's defensible about Polsia is the friction it removes. Most "AI for business" products break on the first integration. Polsia provisions the whole stack, so the user never sees the seams. The daily email creates a habit loop the user opts into voluntarily. The 20% rev cut aligns incentives.</p>
+      <p>What's not defensible is the playbook. The same template runs across all 5,000+ companies. There is no partner judgment shaping the answer, no co-build relationship, no operator decisions feeding the next decision. It's a generic founder-in-a-box.</p>
+      <p>That's why Polsia works for the audience it has - people who want a company to push a button on. It is also why it does not work for ours. 34V backs operators. They don't want an AI CEO. They want the studio's hard-won playbook plus sibling-company memory, delivered to them on demand, with a partner still in the loop.</p>
+      <p style="font-size:13px; color:var(--mute); margin-top:8px;">The one thing worth borrowing: the daily nudge loop. It's the cheapest behaviour-change mechanic in the space.</p>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>02 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>02 / 16</span></div>
 </section>
 
-<!-- =================== 3 - FLYWHEEL =================== -->
+<!-- =================== 3 - THE CATEGORY =================== -->
 <section class="slide">
-  <p class="kicker">03 <span class="sep">/</span> The flywheel</p>
+  <p class="kicker">03 <span class="sep">/</span> The category</p>
+  <h1 class="title">Polsia is no longer alone. <em>The autonomous operator is a category now.</em></h1>
+
+  <div class="body">
+    <p class="lede" style="margin-bottom:14px; max-width:920px;">YC funded four versions of this idea in two batches. None of them target a studio's operator-led portfolio. Our wedge is open.</p>
+
+    <div class="category-grid">
+      <div class="cat-card">
+        <div class="meta">YC F25 - Logistics</div>
+        <div class="name">Lunavo</div>
+        <p class="what">AI workforce for freight carriers & forwarders. Automates ~85% of backoffice tasks. Resolves autonomously, escalates only what matters.</p>
+        <div class="stand">
+          <b>What stands out</b>
+          Ships the dial as a product feature - explicit Co-pilot vs Agent toggle with natural-language guardrails. Sits inside the operation, not on top of it.
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="meta">YC P26 - Consumer</div>
+        <div class="name">Light Anchor</div>
+        <p class="what">Fully autonomous e-commerce brands. Shared platform that compounds with every new brand. Today: one flagship + multiple experiment stores. Vision: thousands.</p>
+        <div class="stand">
+          <b>What stands out</b>
+          Studio-of-studios shape, pointed at one vertical. The compound-across-brands thesis mirrors ours - but for products that don't need operators in the loop. Funding figures conflict across sources; not stated here.
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="meta">YC P26 - Far end</div>
+        <div class="name">Thomas</div>
+        <p class="what">"First AI founder" - a virtual human who starts, runs, and grows companies end-to-end. Admitted to YC at $40k MRR. Human Thomas Cloarec signs the legal docs.</p>
+        <div class="stand">
+          <b>What stands out</b>
+          The provocative far end of the autonomy spectrum. Proves YC will fund "AI as founder" if the metrics show. Worth tracking, not copying.
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="meta">YC W26 - Reference</div>
+        <div class="name">Polsia</div>
+        <p class="what">$6M+ ARR, 5-6,000 micro-companies. Subscription + 20% revenue cut. Nightly AI-CEO loop. The original instance of the pattern.</p>
+        <div class="stand">
+          <b>What stands out</b>
+          Velocity. From launch to $6M ARR in weeks. Validates the demand, doesn't validate the audience match for a studio.
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-take">
+      Polsia proved the demand. The batch proves it's a <em>category</em>. None of these serve a co-built, operator-led portfolio. That is the gap, and it is ours to take.
+    </div>
+  </div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>03 / 16</span></div>
+</section>
+
+<!-- =================== 4 - FLYWHEEL =================== -->
+<section class="slide">
+  <p class="kicker">04 <span class="sep">/</span> The flywheel</p>
   <h1 class="title">The flywheel is the moat. A fund can't copy it. <em>Neither can a SaaS vendor.</em></h1>
 
   <div class="body">
@@ -477,20 +544,20 @@
 
     <div class="flywheel-take">
       <p>The studio model already compounds on this. GSSN via Bundl: studio companies hit Series A at <b>72% vs 42%</b> for traditional, in <b>25.2 months vs 56</b>. Mandalore's intangible-assets piece makes the same point - the studio's edge is the codified playbook plus the network plus the institutional memory.</p>
-      <p>A fund sees decks &amp; KPIs. They don't see daily decisions. A SaaS vendor can serve the form of a memo but can't write the substance, because they don't have the partner-side judgment that decides what's good. We do. That's the asset we're trying to instrument.</p>
+      <p>A fund sees decks & KPIs. They don't see daily decisions. A SaaS vendor can serve the form of a memo but can't write the substance, because they don't have the partner-side judgment that decides what is good. We do. That is the asset we are trying to instrument.</p>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>03 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>04 / 16</span></div>
 </section>
 
-<!-- =================== 4 - DATA SUBSTRATE =================== -->
+<!-- =================== 5 - DATA SUBSTRATE =================== -->
 <section class="slide">
-  <p class="kicker">04 <span class="sep">/</span> What feeds it</p>
+  <p class="kicker">05 <span class="sep">/</span> What feeds it</p>
   <h1 class="title">The brain runs on data we already produce. <em>We throw most of it away.</em></h1>
 
   <div class="body substrate">
     <div>
-      <p class="ref" style="margin-bottom:12px;">None of this is new founder homework. It's wiring.</p>
+      <p class="ref" style="margin-bottom:10px;">None of this is new founder homework. It's wiring.</p>
       <div class="data-chips">
         <div class="chip warm">
           <div class="label">Fireflies transcripts</div>
@@ -527,7 +594,7 @@
       <div class="pullquote">
         The hard part isn't collection. <em>It's consent.</em>
       </div>
-      <p style="font-size:14.5px; color:var(--ink-2); line-height:1.55;">
+      <p style="font-size:13.5px; color:var(--ink-2); line-height:1.55;">
         Every input has a different sensitivity & a different owner. Fireflies transcripts are the most valuable input we have, and also the one founders will care most about. Draft consent terms in week one, signed before any cross-company surface goes live.
       </p>
       <div class="order-note">
@@ -535,184 +602,180 @@
       </div>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>04 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>05 / 16</span></div>
 </section>
 
-<!-- =================== 5 - STUDIO TEAM VIGNETTES =================== -->
+<!-- =================== 6 - STUDIO TEAM =================== -->
 <section class="slide">
-  <p class="kicker">05 <span class="sep">/</span> For the studio team</p>
+  <p class="kicker">06 <span class="sep">/</span> For the studio team</p>
   <h1 class="title">The partner who has read everything <em>and forgets nothing.</em></h1>
 
   <div class="body">
     <div class="vignette-grid">
-      <div class="v-card">
-        <div class="num">1</div>
-        <h3>Office-hours prep</h3>
-        <p>Two minutes before a founder call: what we said last week, what they committed to, what changed in their KPIs since, which open issues match patterns from other companies. Partner walks in loaded.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">2</div>
-        <h3>Pattern surfacing</h3>
-        <p>Co A & Co B both hit a hiring bottleneck at month 6. Co C is at month 5. The brain flags it and pulls what worked for A and B - before the partner asks.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">3</div>
-        <h3>Conversation continuity</h3>
-        <p>Fireflies transcripts mean the brain remembers commitments across all four partners. No more "did we tell them yes on the bridge?" The brain knows and links to the timestamp.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">4</div>
-        <h3>LP update synthesis</h3>
-        <p>KPI deltas + partner commentary + new risks across the portfolio, into a first-draft LP letter in ten minutes. Edit & send.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">5</div>
-        <h3>Knowledge-debt alerts</h3>
-        <p>Pricing playbook hasn't been touched in nine months while four companies asked pricing questions this quarter. Brain pings the playbook owner.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">6</div>
-        <h3>Diligence acceleration</h3>
-        <p>Market sizing, competitive map, GTM scaffold for a new idea, drawn from prior memos in the same vertical. Two days of work into an afternoon.</p>
-      </div>
+      <div class="v-card"><div class="num">1</div><h3>Office-hours prep</h3><p>Two minutes before a founder call: what we said last week, what they committed to, what changed in their KPIs since, which open issues match patterns from other companies. Partner walks in loaded.</p></div>
+      <div class="v-card"><div class="num">2</div><h3>Pattern surfacing</h3><p>Co A & Co B both hit a hiring bottleneck at month 6. Co C is at month 5. The brain flags it and pulls what worked for A and B - before the partner asks.</p></div>
+      <div class="v-card"><div class="num">3</div><h3>Conversation continuity</h3><p>Fireflies transcripts mean the brain remembers commitments across all four partners. No more "did we tell them yes on the bridge?" The brain knows & links to the timestamp.</p></div>
+      <div class="v-card"><div class="num">4</div><h3>LP update synthesis</h3><p>KPI deltas + partner commentary + new risks across the portfolio, into a first-draft LP letter in ten minutes. Edit & send.</p></div>
+      <div class="v-card"><div class="num">5</div><h3>Knowledge-debt alerts</h3><p>Pricing playbook hasn't been touched in nine months while four companies asked pricing questions this quarter. Brain pings the playbook owner.</p></div>
+      <div class="v-card"><div class="num">6</div><h3>Diligence acceleration</h3><p>Market sizing, competitive map, GTM scaffold for a new idea, drawn from prior memos in the same vertical. Two days of work into an afternoon.</p></div>
     </div>
 
     <div class="takeaway-bar">
       <b>Pilot order --></b> ship #1 first (highest frequency, partners use it daily). #2 second (the demo that wins partners over). #4 third (the LP-facing win that justifies the build out loud).
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>05 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>06 / 16</span></div>
 </section>
 
-<!-- =================== 6 - FOUNDER VIGNETTES =================== -->
+<!-- =================== 7 - FOUNDER =================== -->
 <section class="slide">
-  <p class="kicker">06 <span class="sep">/</span> For the founder</p>
+  <p class="kicker">07 <span class="sep">/</span> For the founder</p>
   <h1 class="title">The 34V partner who is on call at 11pm, <em>with the studio's full memory behind every answer.</em></h1>
 
   <div class="body">
     <div class="vignette-grid alt">
-      <div class="v-card">
-        <div class="num">1</div>
-        <h3>"How did Co B handle this?"</h3>
-        <p>Churn spike, payroll in Morocco, switching ad platforms. Founder asks; brain returns the actual answer from a sibling company - with consent gates and the partner who handled it cc'd.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">2</div>
-        <h3>Investor-update drafting</h3>
-        <p>Founder triggers it. Brain pulls metrics, drafts the narrative in their voice, flags what investors usually ask. Fifteen minutes instead of two hours.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">3</div>
-        <h3>Sales-call review</h3>
-        <p>Founder forwards a Fireflies link. Brain: "buyer hesitated at minute 18 on pricing; matches three deals Co C closed by switching to annual prepay; here's the email Co C sent."</p>
-      </div>
-      <div class="v-card">
-        <div class="num">4</div>
-        <h3>Reading the room</h3>
-        <p>"I have my quarterly with Partner X on Friday." Brain returns the three points they pushed on last time, their view on this question from prior transcripts, and the version of the update most likely to land.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">5</div>
-        <h3>Hiring shortlist</h3>
-        <p>"I need a fractional CFO with North Africa SaaS experience." Brain returns names the studio has surfaced or worked with before, with warm-intro drafts.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">6</div>
-        <h3>Plan vs reality</h3>
-        <p>The brain remembers the founder's own 90-day plan. Each week: "you said X by week 6; you're at week 7 and X isn't done. Re-plan or escalate?"</p>
-      </div>
+      <div class="v-card"><div class="num">1</div><h3>"How did Co B handle this?"</h3><p>Churn spike, payroll in Morocco, switching ad platforms. Founder asks; brain returns the actual answer from a sibling company - with consent gates and the partner who handled it cc'd.</p></div>
+      <div class="v-card"><div class="num">2</div><h3>Investor-update drafting</h3><p>Founder triggers it. Brain pulls metrics, drafts the narrative in their voice, flags what investors usually ask. Fifteen minutes instead of two hours.</p></div>
+      <div class="v-card"><div class="num">3</div><h3>Sales-call review</h3><p>Founder forwards a Fireflies link. Brain: "buyer hesitated at minute 18 on pricing; matches three deals Co C closed by switching to annual prepay; here's the email Co C sent."</p></div>
+      <div class="v-card"><div class="num">4</div><h3>Reading the room</h3><p>"I have my quarterly with Partner X on Friday." Brain returns the three points they pushed on last time, their view on this question from prior transcripts, and the version of the update most likely to land.</p></div>
+      <div class="v-card"><div class="num">5</div><h3>Hiring shortlist</h3><p>"I need a fractional CFO with North Africa SaaS experience." Brain returns names the studio has surfaced or worked with before, with warm-intro drafts.</p></div>
+      <div class="v-card"><div class="num">6</div><h3>Plan vs reality</h3><p>The brain remembers the founder's own 90-day plan. Each week: "you said X by week 6; you're at week 7 and X isn't done. Re-plan or escalate?"</p></div>
     </div>
 
     <div class="takeaway-bar" style="background: var(--green-soft);">
       <b style="color: var(--green);">What this beats:</b> "go use ChatGPT". A founder with ChatGPT has the world's knowledge. They don't have the other founders in our portfolio. That's the one thing we can offer that no AI vendor can.
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>06 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>07 / 16</span></div>
 </section>
 
-<!-- =================== 7 - TRUST CONTRACT (new short slide) =================== -->
+<!-- =================== 8 - TRUST CONTRACT =================== -->
 <section class="slide">
-  <p class="kicker">07 <span class="sep">/</span> The trust contract</p>
+  <p class="kicker">08 <span class="sep">/</span> The trust contract</p>
   <h1 class="title">Get "<em>what of mine is visible to whom?</em>" right before "what can the bot do for me?"</h1>
 
-  <div class="body" style="display:flex; flex-direction:column; justify-content:center; gap:24px;">
+  <div class="body" style="display:flex; flex-direction:column; justify-content:center; gap:18px;">
     <p class="lede" style="max-width:880px;">
-      The first time Co C sees an answer that came from Co A, the question every founder asks is the same: did Co A consent? Did the partner approve the cross? Was anything identifying leaked? If we get that wrong on day one, founders close the tab and never open it again.
+      The first time Co C sees an answer that came from Co A, every founder asks the same question: did Co A consent? Did the partner approve the cross? Was anything identifying leaked? Get this wrong on day one and founders close the tab forever.
     </p>
 
-    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px;">
-      <div class="v-card">
-        <div class="num">1</div>
-        <h3>Verbatim with attribution</h3>
-        <p>The actual answer from Co A, with their name on it. Requires explicit per-question opt-in from Co A.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">2</div>
-        <h3>Anonymised pattern</h3>
-        <p>"A sibling company in your stage hit this and resolved it by X." No identifying detail. Default for most surfaces.</p>
-      </div>
-      <div class="v-card">
-        <div class="num">3</div>
-        <h3>Studio-internal only</h3>
-        <p>Pattern surfaces to partners, never to founders. For anything sensitive enough that founders shouldn't see it.</p>
-      </div>
+    <div class="tiers">
+      <div class="v-card"><div class="num">1</div><h3>Verbatim with attribution</h3><p>The actual answer from Co A, with their name on it. Requires explicit per-question opt-in from Co A.</p></div>
+      <div class="v-card"><div class="num">2</div><h3>Anonymised pattern</h3><p>"A sibling company in your stage hit this and resolved it by X." No identifying detail. Default for most surfaces.</p></div>
+      <div class="v-card"><div class="num">3</div><h3>Studio-internal only</h3><p>Pattern surfaces to partners, never to founders. For anything sensitive enough that founders shouldn't see it.</p></div>
     </div>
 
-    <p style="font-size:14.5px; color:var(--ink-2); max-width:880px;">
+    <p style="font-size:13.5px; color:var(--ink-2); max-width:880px;">
       Three tiers in week one. Founders pick the tier per data type. Partners reserve the right to refuse to surface anything - not every pattern that would compound value should be surfaced. Partner judgment is the gate.
     </p>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>07 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>08 / 16</span></div>
 </section>
 
-<!-- =================== 8 - PATTERN ENGINE =================== -->
+<!-- =================== 9 - PATTERN ENGINE + MOAT =================== -->
 <section class="slide">
-  <p class="kicker">08 <span class="sep">/</span> The pattern engine</p>
-  <h1 class="title">The non-obvious value sits <em>between</em> the use cases.</h1>
+  <p class="kicker">09 <span class="sep">/</span> Pattern engine, & why this is the moat</p>
+  <h1 class="title">YC is commoditising memory. <em>Memory isn't our moat. The playbook is.</em></h1>
 
   <div class="body pattern">
     <div class="pattern-diagram">
       <div class="hub">Pattern<br/>engine</div>
       <div class="nodes">
-        <div class="n">
-          <div class="co">Co A</div>
-          <div class="what">Solved hiring bottleneck at M6</div>
-        </div>
-        <div class="n">
-          <div class="co">Co B</div>
-          <div class="what">Same shape, fixed with channel mix</div>
-        </div>
-        <div class="n">
-          <div class="co">Co C</div>
-          <div class="what">M5, about to hit it</div>
-        </div>
+        <div class="n"><div class="co">Co A</div><div class="what">Solved hiring bottleneck at M6</div></div>
+        <div class="n"><div class="co">Co B</div><div class="what">Same shape, fixed with channel mix</div></div>
+        <div class="n"><div class="co">Co C</div><div class="what">M5, about to hit it</div></div>
       </div>
-      <p style="text-align:center; color:var(--mute); font-size:12px; margin-top:14px;">push, not pull - the brain alerts the partner before Co C asks</p>
+      <p style="text-align:center; color:var(--mute); font-size:11.5px; margin-top:12px;">push, not pull - brain alerts the partner before Co C asks</p>
     </div>
 
     <div class="pattern-side">
-      <h2>Indexed by problem shape, not by keyword.</h2>
-      <p>"Hiring a senior salesperson in a market with thin SaaS talent" and "filling a head-of-revenue role in Casablanca" are the same pattern. The brain knows that. Partner corrections back-propagate: when a partner says "the North Africa answer is X, not the default", the next founder asking gets X.</p>
-      <p>Standard Metrics will tell you Co C's CAC is rising. Only the brain knows Co A and Co B saw the same shape and fixed it. The conversation is where the pattern lives - and the monitoring tools don't see the conversation.</p>
-      <p style="font-size:13px; color:var(--mute); margin-top:8px;">
-        ResearchGate, network-based VC success analysis: 67% of predictive power comes from network features (84.7% AUC). Directionally relevant - the network is the asset; the pattern engine makes it legible.
+      <h2>Indexed by problem shape, not keyword.</h2>
+      <p>The brain answers Co C's question with Co A's and Co B's experience. Corrections back-propagate: when a partner says "the North Africa answer is X", the next founder gets X. Surfacing is push - the brain alerts the partner before the company asks.</p>
+
+      <div class="moat-row">
+        <div class="mc">
+          <b>YC W26 - Corvera</b>
+          Context layer for AI-native CPG brands via MCP. $0 -> $33k MRR in 4 weeks, 12 brands, 130% WoW (mid-March 2026). Raised $6.2M.
+        </div>
+        <div class="mc">
+          <b>YC - Memory Store</b>
+          "One memory for your team's agents". Pulls from Slack, Gmail, Granola. Any MCP-compatible agent can connect. Plumbing layer.
+        </div>
+      </div>
+
+      <p style="font-size:12.5px; color:var(--ink-2); margin-top:12px;">
+        YC Spring 2026 (194 companies, 61% B2B) is the most agent-heavy cohort yet, building identity, payments, memory, sandboxes, even insurance for AI agents. Plumbing is becoming a commodity.
       </p>
+
       <div class="warn">
-        The highest-value feature is also the highest-risk. Build the consent UX (previous slide) before the alerting UX.
+        Our defensibility cannot be "we built memory". It must be <b>operating playbooks across a co-built, operator-led portfolio, shaped by partner judgment</b>. The thing a non-operator can't replicate.
       </div>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>08 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>09 / 16</span></div>
 </section>
 
-<!-- =================== 9 - THE DIAL =================== -->
+<!-- =================== 10 - FUTURE ROADMAP =================== -->
 <section class="slide">
-  <p class="kicker">09 <span class="sep">/</span> The dial</p>
-  <h1 class="title">Start advisory. <em>Earn the right to operational.</em></h1>
+  <p class="kicker">10 <span class="sep">/</span> Where this goes</p>
+  <h1 class="title">90-day build is v1. <em>Here's where it points.</em></h1>
 
   <div class="body">
-    <p class="lede" style="margin-bottom:18px;">Autonomy is a dial, not a switch. We dial up task by task as trust and data justify it.</p>
+    <p class="lede" style="max-width:920px; margin-bottom:14px;">We don't design year 3 upfront. We earn it. But the roadmap matters because it tells us what to instrument in v1 so we keep optionality.</p>
 
+    <div class="roadmap">
+      <div class="phase now">
+        <div class="when">Now - 90 days</div>
+        <div class="label">v1 - Wire what we have</div>
+        <p class="scope">Connect the eight skills. Build the substrate. Ship the studio &amp; founder use cases on slides 6-7. One end-to-end pattern alert. Advisory mode only.</p>
+        <ul>
+          <li>Office-hours prep, pattern surfacing, conversation continuity</li>
+          <li>Founder sibling-consult & investor-update drafting</li>
+          <li>Three consent tiers from slide 8</li>
+          <li>Adoption KPI baseline</li>
+        </ul>
+      </div>
+
+      <div class="phase future">
+        <div class="when" style="color: var(--blue);">Months 4-18</div>
+        <div class="label">v2 - Expand &amp; instrument</div>
+        <p class="scope">Promote specific tasks up the dial as gates clear. Add the surfaces that move EBITDA inside portfolio companies, not just inside the studio.</p>
+        <ul>
+          <li>Cross-portfolio benchmarking (anonymised, opt-in)</li>
+          <li>Predictive risk surfacing - hiring, runway, churn</li>
+          <li>IC memo simulation - test against critique patterns before IC</li>
+          <li>LP intelligence - which themes land with which LPs</li>
+          <li>Founder matching - mentors, advisors, co-founder candidates from the network</li>
+          <li>Open API: portfolio companies plug the brain into their stack</li>
+          <li>First operational-tier tasks: templated intros, hiring posts, scheduling</li>
+        </ul>
+      </div>
+
+      <div class="phase future">
+        <div class="when" style="color: var(--blue);">Months 18+</div>
+        <div class="label">v3 - Earn the right to externalise</div>
+        <p class="scope">Decide between Spinout (B) and Studio-of-studios (C) on real data, not on slideware. The work we do in v1 and v2 is what makes either option viable.</p>
+        <ul>
+          <li>Studio-of-studios subscription tier - other regional studios run on the playbook library</li>
+          <li>Anonymised pattern marketplace across participating studios</li>
+          <li>Multi-language layer (AR / FR / EN / Amazigh) for North African operators</li>
+          <li>"Founder twin" - voice-matched drafting for routine ops, founder approves</li>
+          <li>Agent that handles a defined slice of portfolio asks without per-action review</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="roadmap-note">v1 ships things v2 needs. v2 ships things v3 needs. None of v2 or v3 commits us today - they tell us what scaffolding to build into v1 so the options stay open.</p>
+  </div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>10 / 16</span></div>
+</section>
+
+<!-- =================== 11 - DIAL + MARKET CONSENSUS =================== -->
+<section class="slide">
+  <p class="kicker">11 <span class="sep">/</span> The dial</p>
+  <h1 class="title">Start advisory. Earn the right to operational. <em>This isn't cautious - it's where the market converged.</em></h1>
+
+  <div class="body">
     <div class="dial-rows">
       <div class="dial-row">
         <div class="dial-stage">Advisory<span class="when">v1 - day one</span></div>
@@ -720,7 +783,7 @@
       </div>
       <div class="dial-row">
         <div class="dial-stage">Assisted<span class="when">after 30 days</span></div>
-        <div class="dial-bar assisted">Brain executes on a single click - schedule a meeting, send an intro, log an action item</div>
+        <div class="dial-bar assisted">Brain executes on a single click - schedule, intro, log an action</div>
       </div>
       <div class="dial-row">
         <div class="dial-stage">Operational<span class="when">earned per task</span></div>
@@ -728,8 +791,14 @@
       </div>
     </div>
 
+    <div class="market-check">
+      <div class="mc"><b>YC W26 batch</b>~60% AI startups. Shift away from copilots bolted on SaaS, toward "delegated operators" that execute AND validate their behavior.</div>
+      <div class="mc"><b>Trust but verify --> primitive</b>Validation (checks, policies, simulation, rollback) became a platform-level requirement across the batch. The dial is the design pattern.</div>
+      <div class="mc"><b>Lunavo (YC F25)</b>Ships the dial as a live feature - explicit Co-pilot vs Agent toggle, with natural-language guardrail templates per task.</div>
+    </div>
+
     <div class="gates">
-      <h4>A task only promotes when all four are true:</h4>
+      <h4>A task promotes when all four are true:</h4>
       <ol>
         <li><b>High volume</b>Repeats enough that automation pays back.</li>
         <li><b>Reversible</b>Mistakes are undoable in minutes.</li>
@@ -737,47 +806,63 @@
         <li><b>Trust-tested</b>Two founders ran advisory mode for 30 days, zero overrides.</li>
       </ol>
     </div>
-
-    <p style="font-size:12.5px; color:var(--mute); margin-top:14px;">
-      Atlan: only 21% of enterprises have mature governance for autonomous agents. AURA framework (arXiv 2510.15739) maps liability directly to delegated authority. One unrecoverable mistake across the portfolio kills founder trust faster than any feature wins it back.
-    </p>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>09 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>11 / 16</span></div>
 </section>
 
-<!-- =================== 10 - LANDSCAPE =================== -->
+<!-- =================== 12 - LANDSCAPE =================== -->
 <section class="slide">
-  <p class="kicker">10 <span class="sep">/</span> The gap</p>
-  <h1 class="title">Everyone owns the data layer. <em>Nobody owns the playbook layer.</em></h1>
+  <p class="kicker">12 <span class="sep">/</span> The landscape</p>
+  <h1 class="title">Three categories own three layers. <em>No one owns the playbook layer.</em></h1>
 
   <div class="body">
-    <p class="lede" style="margin-bottom:14px; max-width:880px;">The existing stack sits on portfolio data & relationships. None of it captures the conversation, the correction, or the playbook. That's the asymmetry.</p>
+    <div class="landscape-groups">
+      <div class="lgroup">
+        <div class="lhead">Data & relationships - mature, fund-shaped</div>
+        <table>
+          <tr><td>Affinity</td><td>Relationship CRM, sourcing, intros. No operator playbook. No founder surface.</td></tr>
+          <tr><td>Standard Metrics</td><td>KPI capture & benchmarking, 100+ VC firms. Dashboards, not decisions.</td></tr>
+          <tr><td>Chronograph</td><td>Institutional PE / LP reporting, $4T+ tracked. Heavy for a studio.</td></tr>
+          <tr><td>CB Insights / PitchBook</td><td>Predictive & historical market data. Reference, not workflow.</td></tr>
+        </table>
+      </div>
 
-    <table class="landscape">
-      <thead>
-        <tr><th style="width:160px;">Tool</th><th>What it owns</th><th>What it leaves on the table</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Affinity</td><td>Relationship CRM, sourcing, intros</td><td>No operator playbook. No founder surface.</td></tr>
-        <tr><td>Standard Metrics</td><td>KPI capture & benchmarking, 100+ VC firms</td><td>Dashboards, not decisions. No conversation memory.</td></tr>
-        <tr><td>Chronograph</td><td>Institutional PE / LP reporting, $4T+ tracked</td><td>Heavy for a studio. Not founder-facing.</td></tr>
-        <tr><td>CB Insights</td><td>Predictive market intelligence</td><td>Outside-in only. No operator data.</td></tr>
-        <tr><td>PitchBook</td><td>Historical private-market data</td><td>Reference, not workflow.</td></tr>
-        <tr><td>Polsia</td><td>Autonomous AI-run companies for non-operators</td><td>Replaces the operator. Wrong audience.</td></tr>
-        <tr><td>34V Second Brain</td><td>Operator playbook + studio memory + founder co-pilot</td><td>The white space.</td></tr>
-      </tbody>
-    </table>
+      <div class="lgroup">
+        <div class="lhead">Memory & context plumbing - commoditising fast (YC W26, S26)</div>
+        <table>
+          <tr><td>Corvera (YC W26)</td><td>Context layer for CPG via MCP. $33k MRR in 4 weeks. Plumbing as a product.</td></tr>
+          <tr><td>Memory Store (YC)</td><td>"One memory for your agents". Slack + Gmail + Granola. Generic & vertical-agnostic.</td></tr>
+        </table>
+      </div>
+
+      <div class="lgroup">
+        <div class="lhead">Autonomous operators - wrong audience for a studio</div>
+        <table>
+          <tr><td>Polsia</td><td>$6M+ ARR, 5-6k AI-run companies. Replaces the operator.</td></tr>
+          <tr><td>Lunavo (YC F25)</td><td>AI workforce for freight carriers. Inside the operation, not on top.</td></tr>
+          <tr><td>Light Anchor (YC P26)</td><td>Autonomous e-commerce brands on a shared platform.</td></tr>
+          <tr><td>Thomas (YC P26)</td><td>"First AI founder". The far end of the autonomy spectrum.</td></tr>
+        </table>
+      </div>
+
+      <div class="lgroup own">
+        <div class="lhead" style="color: var(--accent);">Operator playbook layer - the white space</div>
+        <table>
+          <tr><td>34V Second Brain</td><td>Co-built playbook + studio memory + founder co-pilot. Operator-led portfolio, partner-shaped answers, sibling-company patterns.</td></tr>
+        </table>
+      </div>
+    </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>10 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>12 / 16</span></div>
 </section>
 
-<!-- =================== 11 - STRUCTURE =================== -->
+<!-- =================== 13 - STRUCTURE =================== -->
 <section class="slide">
-  <p class="kicker">11 <span class="sep">/</span> How we own this</p>
+  <p class="kicker">13 <span class="sep">/</span> How we own this</p>
   <h1 class="title">Build internal first. Instrument the data. <em>Keep spinout optionality.</em></h1>
 
   <div class="body">
-    <p class="lede" style="margin-bottom:18px;">Three structural options. I think A now, with B & C kept open.</p>
+    <p class="lede" style="margin-bottom:16px;">Three structural options. I think A now, with B & C kept open via what we instrument in v1.</p>
 
     <div class="struct">
       <div class="opt rec">
@@ -785,7 +870,7 @@
         <div class="letter" style="color:rgba(247,243,234,0.55);">Option A</div>
         <h3>Internal IP</h3>
         <p>Tool built and used inside 34V. Not sold.</p>
-        <p>Fastest. Tightest feedback loop. Compounds straight into portfolio returns. No GTM tax.</p>
+        <p>Fastest. Tightest feedback loop. Compounds straight into portfolio EBITDA. No GTM tax.</p>
         <p style="opacity:0.7;">Downside: no outside revenue. Stays a cost center until we prove it.</p>
       </div>
       <div class="opt">
@@ -805,7 +890,7 @@
     </div>
 
     <div class="opt-note">
-      <b>Keeping optionality means three concrete things, none of them expensive if we do them now:</b>
+      <b>Keeping optionality means three concrete things we do in v1:</b>
       <ol>
         <li>Multi-tenant data model from day one, with 34V as the only tenant.</li>
         <li>Per-skill provenance & feedback capture, exportable.</li>
@@ -813,12 +898,12 @@
       </ol>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>11 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>13 / 16</span></div>
 </section>
 
-<!-- =================== 12 - WHAT KILLS THIS =================== -->
+<!-- =================== 14 - WHAT KILLS THIS =================== -->
 <section class="slide">
-  <p class="kicker">12 <span class="sep">/</span> What kills this</p>
+  <p class="kicker">14 <span class="sep">/</span> What kills this</p>
   <h1 class="title">The risks are human. <em>They're not technical.</em></h1>
 
   <div class="body">
@@ -832,13 +917,13 @@
       <div class="risk">
         <div class="num">2</div>
         <h3>Playbooks too idiosyncratic</h3>
-        <p>Every company turns out to be a special case. The pattern engine never lands because there are no patterns.</p>
+        <p>Every company turns out to be a special case. The pattern engine never lands because there are no patterns to surface.</p>
         <div class="stat">The one I'd watch hardest. We won't know until v1 ships and we try to surface the first cross-company alert.</div>
       </div>
       <div class="risk">
         <div class="num">3</div>
         <h3>Nobody owns maintenance</h3>
-        <p>Pricing playbook is fine in month 1, stale in month 9, actively wrong in month 18. Brain gives confident wrong answers.</p>
+        <p>Pricing playbook fine in month 1, stale in month 9, actively wrong in month 18. Brain gives confident wrong answers.</p>
         <div class="stat">~70% of digital transformations miss objectives (MeltingSpot). 42%+ of failures trace to change management (Sci-Tech Today).</div>
       </div>
     </div>
@@ -851,19 +936,19 @@
       <b>What we do about it --></b> embed the brain inside existing rituals (office hours, founder check-ins, IC prep). Name one playbook owner per skill. Define adoption KPIs before launch - weekly active partners, weekly active founders, correction-rate trend.
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>12 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>14 / 16</span></div>
 </section>
 
-<!-- =================== 13 - DECISION =================== -->
+<!-- =================== 15 - DECISION =================== -->
 <section class="slide">
-  <p class="kicker">13 <span class="sep">/</span> The decision</p>
+  <p class="kicker">15 <span class="sep">/</span> The decision</p>
   <h1 class="title">One yes. <em>One owner. One date.</em></h1>
 
   <div class="body decision-hero">
     <div>
       <h2>Approve a <em>90-day internal build</em>.</h2>
-      <p class="scope">Connect the eight skills. Wire the substrate from slide 4. Ship studio use cases 1, 2 & 4. Ship founder use cases 1 & 2. One pattern alert end-to-end. Advisory mode only in v1.</p>
-      <p class="outscope">Out of scope: portfolio monitoring (we integrate Standard Metrics if we ever need it), Polsia-style autonomous agents, any spinout entity.</p>
+      <p class="scope">Connect the eight skills. Wire the substrate from slide 5. Ship studio use cases 1, 2 &amp; 4 (slide 6) and founder use cases 1 &amp; 2 (slide 7). One pattern alert end-to-end. Advisory mode only. Optionality scaffolding from slide 13.</p>
+      <p class="outscope">Out of scope: portfolio monitoring (we integrate Standard Metrics if we ever need it), Polsia / Light Anchor / Thomas-style autonomous agents, any spinout entity.</p>
 
       <div class="timeline">
         <div class="t"><div class="when">30 days</div><div class="what">v1 live</div></div>
@@ -872,66 +957,62 @@
       </div>
     </div>
     <div class="decision-side">
-      <p class="kicker" style="margin-bottom:14px;">This week</p>
+      <p class="kicker" style="margin-bottom:12px;">This week</p>
       <ul class="step-list">
         <li><div class="n">1</div><div class="t"><b>Name the owner</b>One partner accountable for the 90-day build.</div></li>
         <li><div class="n">2</div><div class="t"><b>Pick the pilot</b>One portfolio company already in office-hours rituals - design partner.</div></li>
         <li><div class="n">3</div><div class="t"><b>Draft consent terms</b>Signed by all portfolio founders before any cross-company surface lights up.</div></li>
       </ul>
 
-      <p style="font-size:13px; color:var(--mute); margin-top:20px; border-left:3px solid var(--red); padding-left:12px;">
-        <b style="color:var(--red);">Cost of "no" -->]</b> Nine months from now we evaluate other people's products built on data we should already own. The eight skills still exist, just disconnected. The flywheel from slide 3 never starts.
+      <p style="font-size:12.5px; color:var(--mute); margin-top:18px; border-left:3px solid var(--red); padding-left:12px;">
+        <b style="color:var(--red);">Cost of "no" --></b> Nine months from now we evaluate other people's products built on data we should already own. The eight skills still exist, just disconnected. The flywheel from slide 4 never starts.
       </p>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>13 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>15 / 16</span></div>
 </section>
 
-<!-- =================== 14 - APPENDIX =================== -->
+<!-- =================== 16 - APPENDIX =================== -->
 <section class="slide">
   <p class="kicker">Appendix <span class="sep">/</span> Sources</p>
   <h1 class="title">Sources</h1>
 
   <div class="body">
-    <p class="ref" style="margin-bottom:18px;">Full citations in <a href="sources.md">sources.md</a>.</p>
+    <p class="ref" style="margin-bottom:14px;">Full citations in <a href="sources.md">sources.md</a>.</p>
 
     <div class="appendix-grid">
       <div class="group">
-        <h4>Adoption &amp; landscape</h4>
-        <p>Affinity 2026 dealmaker survey (85%, up from 76%). Standard Metrics tech-stack guide. Chronograph product site. Otio on CB Insights vs PitchBook.</p>
+        <h4>AI value creation</h4>
+        <p>Korn Ferry on AI Operating Partner role. Withum on EBITDA uplift (2-4x). AI Assembly Lines on PE operating partner playbooks (20-25% EBITDA). Accenture on mid-market AI value.</p>
       </div>
       <div class="group">
-        <h4>Polsia</h4>
-        <p>Latent Space / TeamDay interview (Feb 2026). Context Studios and andrew.ooo write-ups. henrythe9th later update.</p>
+        <h4>Polsia &amp; the autonomous-operator category</h4>
+        <p>Polsia: Latent Space / TeamDay; Context Studios; andrew.ooo; henrythe9th. Light Anchor (YC P26, Chase Kim & Sangha Park). Lunavo (YC F25, Logistics Navigators write-up). Thomas (YC P26, Thomas Cloarec, madebythomas.ai).</p>
+      </div>
+      <div class="group">
+        <h4>Memory plumbing & YC batches</h4>
+        <p>Corvera (YC W26, $33k MRR in 4 weeks, 12 brands, 130% WoW). Memory Store (YC). YC W26 batch analysis (~60% AI, "delegated operators"). YC Spring 2026 (194 companies, agent economy).</p>
       </div>
       <div class="group">
         <h4>Studio model</h4>
-        <p>GSSN via Bundl (72% to Series A vs 42%, 25.2 vs 56 months). Mandalore Partners on intangible assets. Esinli on equity stakes. High Alpha on portfolio cadence.</p>
+        <p>GSSN via Bundl (72% to Series A vs 42%, 25.2 vs 56 months). Mandalore on intangible assets. Esinli on equity stakes. High Alpha on portfolio cadence.</p>
       </div>
       <div class="group">
         <h4>Autonomy &amp; risk</h4>
         <p>Atlan on copilots vs agents (21% mature governance). AURA framework (arXiv 2510.15739). Foley &amp; Lardner on agentic liability. Domo on trust-build patterns.</p>
       </div>
       <div class="group">
-        <h4>Network &amp; patterns</h4>
-        <p>ResearchGate, network-based VC success (67% predictive power from network features). Towards AI on knowledge graphs for investing.</p>
-      </div>
-      <div class="group">
-        <h4>Spinout precedents &amp; market</h4>
-        <p>Slack, Basecamp, Asana internal-first origins. Grand View on portfolio-mgmt software market ($3.94B in 2026, 11.3% CAGR).</p>
-      </div>
-      <div class="group">
-        <h4>Adoption failure</h4>
-        <p>MeltingSpot on digital transformation (~70% miss). Sci-Tech Today on enterprise software failures. Integrate.io on shelfware. Marlborough St on adoption as change-mgmt.</p>
+        <h4>Landscape, network, adoption failure</h4>
+        <p>Standard Metrics, Chronograph, Affinity product sites. Otio on CB Insights vs PitchBook. ResearchGate on network-based VC success (67% predictive power from network features). Grand View on portfolio-mgmt SaaS market ($3.94B, 11.3% CAGR). MeltingSpot, Sci-Tech Today, Integrate.io, Marlborough Street on adoption / shelfware patterns.</p>
       </div>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>14 / 14</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>16 / 16</span></div>
 </section>
 
 </div>
 
-<div class="controls"><span id="counter">1 / 15</span> &nbsp; <span style="opacity:0.6;">arrow keys</span></div>
+<div class="controls"><span id="counter">1 / 17</span> &nbsp; <span style="opacity:0.6;">arrow keys</span></div>
 
 <script>
   const slides = document.querySelectorAll('.slide');
