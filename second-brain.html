@@ -21,12 +21,18 @@
     --blue: #335d7e;
     --blue-soft: rgba(51, 93, 126, 0.08);
     --rule: #ddd2bd;
+    --shadow: 0 1px 2px rgba(40,26,12,0.05), 0 10px 30px rgba(40,26,12,0.06);
   }
+  .p2 { --accent: #2e6b52; --accent-soft: rgba(46,107,82,0.10); }
+  .p3 { --accent: #33627e; --accent-soft: rgba(51,98,126,0.10); }
+  .p4 { --accent: #a8543a; --accent-soft: rgba(168,84,58,0.10); }
   * { box-sizing: border-box; }
   html, body {
     margin: 0;
     height: 100%;
-    background: var(--bg);
+    background:
+      radial-gradient(1000px 500px at 88% -10%, rgba(184,118,42,0.07) 0%, rgba(184,118,42,0) 60%),
+      var(--bg);
     color: var(--ink);
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 15px;
@@ -42,20 +48,26 @@
   }
   .slide.active { display: flex; flex-direction: column; }
   .kicker {
+    display: inline-flex; align-items: center;
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--accent);
-    font-weight: 600;
+    font-weight: 700;
     margin: 0;
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    padding: 5px 14px;
+    border-radius: 999px;
+    width: fit-content;
   }
-  .kicker .sep { color: var(--rule); margin: 0 10px; }
+  .kicker .sep { color: color-mix(in srgb, var(--accent) 40%, transparent); margin: 0 9px; }
   h1.title {
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 32px;
+    font-size: 34px;
     line-height: 1.18;
     font-weight: 600;
-    margin: 10px 0 0 0;
+    margin: 16px 0 0 0;
     letter-spacing: -0.012em;
     max-width: 1000px;
   }
@@ -76,21 +88,28 @@
     display: flex; justify-content: space-between; align-items: baseline;
     color: var(--mute); font-size: 11px;
   }
-  .footer .brand { letter-spacing: 0.16em; text-transform: uppercase; }
+  .footer .brand { letter-spacing: 0.16em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; }
+  .footer .brand::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
   .progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; background: transparent; z-index: 5; }
-  .progress > div { height: 100%; background: var(--accent); width: 0; transition: width .2s; }
+  .progress > div { height: 100%; background: linear-gradient(90deg, #b8762a, #2e6b52, #33627e, #a8543a); background-size: 100vw 100%; width: 0; transition: width .2s; }
   a { color: var(--accent); }
 
   /* ---------- COVER ---------- */
-  .cover { justify-content: center; align-items: center; text-align: center; padding: 0 80px; }
+  .cover {
+    justify-content: center; align-items: center; text-align: center; padding: 0 80px;
+    background:
+      radial-gradient(1100px 520px at 50% -12%, #3d2d1b 0%, rgba(61,45,27,0) 62%),
+      radial-gradient(900px 500px at 85% 110%, rgba(46,107,82,0.20) 0%, rgba(46,107,82,0) 55%),
+      linear-gradient(165deg, #251c12 0%, #1c150e 100%);
+  }
   .cover h1 {
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
-    font-size: 64px; line-height: 1.05; letter-spacing: -0.02em;
-    margin: 0 0 20px 0; max-width: 900px;
+    font-size: 66px; line-height: 1.05; letter-spacing: -0.02em;
+    margin: 0 0 20px 0; max-width: 900px; color: #f4ecdc;
   }
-  .cover h1 em { color: var(--accent); font-style: normal; }
-  .cover .sub { color: var(--mute); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-  .cover .tagline { color: var(--ink-2); font-size: 18px; margin-top: 28px; max-width: 600px; }
+  .cover h1 em { color: #dc9a4e; font-style: normal; }
+  .cover .sub { color: #a08c6e; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .cover .tagline { color: #cdbfa4; font-size: 18px; line-height: 1.55; margin-top: 28px; max-width: 640px; }
 
   /* ---------- STAT HERO ---------- */
   .stat-hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
@@ -126,7 +145,7 @@
 
   /* ---------- SPLIT ---------- */
   .split { display: grid; grid-template-columns: 0.85fr 1fr; gap: 48px; align-items: start; align-content: center; }
-  .split .left { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 24px; }
+  .split .left { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 26px; box-shadow: var(--shadow); }
   .split .left .label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
   .split .left .name { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 28px; margin: 6px 0 14px 0; font-weight: 600; }
   .split .left dl { margin: 0; }
@@ -141,7 +160,7 @@
     margin-bottom: 18px;
   }
   .cat-card {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 12px;
     padding: 20px 18px 16px 18px;
   }
   .cat-card .meta {
@@ -168,7 +187,7 @@
 
   /* ---------- FLYWHEEL ---------- */
   .flywheel-stage { display: flex; align-items: stretch; justify-content: space-between; margin: 24px 0 30px 0; }
-  .flywheel-node { flex: 1; background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 20px 18px; text-align: center; display: flex; flex-direction: column; }
+  .flywheel-node { flex: 1; background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 14px; padding: 20px 18px; text-align: center; display: flex; flex-direction: column; }
   .flywheel-node p { margin-top: auto; }
   .flywheel-node .n {
     width: 30px; height: 30px; border-radius: 50%;
@@ -188,7 +207,7 @@
   /* ---------- DATA SUBSTRATE ---------- */
   .substrate { display: grid; grid-template-columns: 1.4fr 1fr; gap: 44px; align-items: center; }
   .data-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
-  .chip { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; }
+  .chip { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; box-shadow: var(--shadow); }
   .chip .label { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-weight: 600; font-size: 14px; }
   .chip .desc { font-size: 12px; color: var(--mute); margin-top: 3px; line-height: 1.4; }
   .chip.warm { background: var(--accent-soft); border-color: var(--accent); }
@@ -204,7 +223,7 @@
 
   /* ---------- VIGNETTE GRID ---------- */
   .vignette-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .v-card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 20px 18px; position: relative; }
+  .v-card { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 12px; padding: 20px 18px; position: relative; }
   .v-card .num {
     position: absolute; top: 14px; right: 16px;
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
@@ -261,7 +280,7 @@
   /* ---------- ROADMAP ---------- */
   .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
   .phase {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 12px;
     padding: 20px; display: flex; flex-direction: column;
   }
   .phase.now { border-color: var(--accent); background: var(--accent-soft); }
@@ -292,8 +311,8 @@
   .dial-row { display: grid; grid-template-columns: 190px 1fr; gap: 22px; align-items: center; }
   .dial-bar { height: 50px; border-radius: 8px; display: flex; align-items: center; padding: 0 18px; color: white; font-weight: 500; font-size: 13px; }
   .dial-bar.advisory { background: var(--accent); width: 100%; }
-  .dial-bar.assisted { background: rgba(184,118,42,0.55); width: 70%; }
-  .dial-bar.operational { background: rgba(184,118,42,0.30); color: var(--ink); width: 40%; }
+  .dial-bar.assisted { background: color-mix(in srgb, var(--accent) 55%, var(--bg)); width: 70%; }
+  .dial-bar.operational { background: color-mix(in srgb, var(--accent) 26%, var(--bg)); color: var(--ink); width: 40%; }
   .dial-stage { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-weight: 600; font-size: 17px; }
   .dial-stage .when { display: block; font-family: "Inter", sans-serif; font-size: 11px; color: var(--mute); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; margin-top: 2px; }
   .market-check {
@@ -314,7 +333,7 @@
   /* ---------- LANDSCAPE ---------- */
   .landscape-groups { display: flex; flex-direction: column; gap: 14px; }
   .lgroup {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
+    background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 10px;
     padding: 14px 18px;
   }
   .lgroup .lhead {
@@ -332,7 +351,7 @@
 
   /* ---------- STRUCTURE ---------- */
   .struct { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .struct .opt { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 20px; position: relative; }
+  .struct .opt { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 20px; position: relative; box-shadow: var(--shadow); }
   .struct .opt.rec { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .struct .opt.rec p { color: rgba(247,243,234,0.85); }
   .struct .opt .letter { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 13px; letter-spacing: 0.16em; color: var(--accent); font-weight: 600; }
@@ -351,7 +370,7 @@
 
   /* ---------- RISKS ---------- */
   .risks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .risk { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 20px; position: relative; overflow: hidden; }
+  .risk { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 12px; padding: 20px; position: relative; overflow: hidden; }
   .risk .num { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 52px; line-height: 1; color: var(--red); opacity: 0.18; position: absolute; top: 12px; right: 16px; font-weight: 700; }
   .risk h3 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 16px; margin: 0 0 8px 0; font-weight: 600; padding-right: 36px; }
   .risk p { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; margin: 0; }
@@ -382,7 +401,7 @@
 
   /* ---------- TEAM ---------- */
   .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .person-card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 24px; }
+  .person-card { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 12px; padding: 22px 24px; }
   .person-tag { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; }
   .person-role-line { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 20px; font-weight: 600; margin: 0 0 14px 0; line-height: 1.28; }
   .person-body p { font-size: 13px; color: var(--ink-2); line-height: 1.55; margin: 0 0 10px 0; }
@@ -393,7 +412,7 @@
 
   /* ---------- VALIDATE ---------- */
   .validate-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .v-item { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 22px; display: flex; gap: 16px; }
+  .v-item { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 12px; padding: 22px; display: flex; gap: 16px; }
   .v-item .num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
   .v-item .body h3 { font-family: "Iowan Old Style", "Charter", Georgia, serif; font-size: 17px; font-weight: 600; margin: 0 0 6px 0; }
   .v-item .body p { font-size: 13.5px; color: var(--ink-2); line-height: 1.55; margin: 0; }
@@ -406,18 +425,22 @@
     margin-top: 36px; max-width: 940px; text-align: left;
   }
   .cover-outline .co {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
+    background: rgba(255,255,255,0.045); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px;
     padding: 18px;
   }
   .cover-outline .co b {
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
     color: var(--accent); font-size: 15px; display: block; margin-bottom: 4px;
   }
-  .cover-outline .co span { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; display: block; }
+  .cover-outline .co span { font-size: 12.5px; color: #b6a687; line-height: 1.5; display: block; }
+  .cover-outline .co:nth-child(1) b { color: #dc9a4e; }
+  .cover-outline .co:nth-child(2) b { color: #6fbf9a; }
+  .cover-outline .co:nth-child(3) b { color: #7aa9c7; }
+  .cover-outline .co:nth-child(4) b { color: #d98a70; }
 
   /* ---------- Q&A APPENDIX ---------- */
   .qa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
-  .qa-card { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; }
+  .qa-card { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); border-radius: 10px; padding: 16px 18px; }
   .qa-card .q {
     font-family: "Iowan Old Style", "Charter", Georgia, serif;
     font-weight: 600; font-size: 14.5px;
@@ -608,7 +631,7 @@
 </section>
 
 <!-- =================== 5 - DATA SUBSTRATE =================== -->
-<section class="slide">
+<section class="slide p2">
   <p class="kicker">05 <span class="sep">/</span> What feeds it</p>
   <h1 class="title">The brain runs on data we already produce. <em>We throw most of it away.</em></h1>
 
@@ -663,7 +686,7 @@
 </section>
 
 <!-- =================== 6 - STUDIO TEAM =================== -->
-<section class="slide">
+<section class="slide p2">
   <p class="kicker">06 <span class="sep">/</span> For the studio team</p>
   <h1 class="title">The partner who has read everything <em>and forgets nothing.</em></h1>
 
@@ -685,7 +708,7 @@
 </section>
 
 <!-- =================== 7 - FOUNDER =================== -->
-<section class="slide">
+<section class="slide p2">
   <p class="kicker">07 <span class="sep">/</span> For the founder</p>
   <h1 class="title">The 34V partner who is on call at 11pm, <em>with the studio's full memory behind every answer.</em></h1>
 
@@ -707,7 +730,7 @@
 </section>
 
 <!-- =================== 8 - PATTERN ENGINE (with consent built in) =================== -->
-<section class="slide">
+<section class="slide p2">
   <p class="kicker">08 <span class="sep">/</span> The pattern engine</p>
   <h1 class="title">One company's lesson becomes <em>every company's answer.</em></h1>
 
@@ -745,7 +768,7 @@
 </section>
 
 <!-- =================== 10 - FUTURE ROADMAP =================== -->
-<section class="slide">
+<section class="slide p3">
   <p class="kicker">09 <span class="sep">/</span> Where this goes</p>
   <h1 class="title">The 90-day build is v1. <em>Here's where it points.</em></h1>
 
@@ -793,7 +816,7 @@
 </section>
 
 <!-- =================== 11 - DIAL + MARKET CONSENSUS =================== -->
-<section class="slide">
+<section class="slide p3">
   <p class="kicker">10 <span class="sep">/</span> The dial</p>
   <h1 class="title">Advisory by default. Operational as gates clear. <em>The shape the market has independently converged on.</em></h1>
 
@@ -833,7 +856,7 @@
 </section>
 
 <!-- =================== 12 - LANDSCAPE =================== -->
-<section class="slide">
+<section class="slide p3">
   <p class="kicker">11 <span class="sep">/</span> The landscape</p>
   <h1 class="title">Three categories own three layers. <em>No one owns the playbook layer.</em></h1>
 
@@ -879,7 +902,7 @@
 </section>
 
 <!-- =================== 13 - STRUCTURE =================== -->
-<section class="slide">
+<section class="slide p3">
   <p class="kicker">12 <span class="sep">/</span> How we own this</p>
   <h1 class="title">Build internal first. Instrument the data. <em>Keep spinout optionality.</em></h1>
 
@@ -924,7 +947,7 @@
 </section>
 
 <!-- =================== 14 - THE TEAM =================== -->
-<section class="slide">
+<section class="slide p4">
   <p class="kicker">13 <span class="sep">/</span> The team</p>
   <h1 class="title">A project lead with a venture lens, two consultants who build. <em>Developed inside 34V, on 34V's terms.</em></h1>
 
@@ -980,7 +1003,7 @@
 </section>
 
 <!-- =================== 15 - WHAT KILLS THIS =================== -->
-<section class="slide">
+<section class="slide p4">
   <p class="kicker">14 <span class="sep">/</span> What kills this</p>
   <h1 class="title">The risks are human. <em>They're not technical.</em></h1>
 
@@ -1018,7 +1041,7 @@
 </section>
 
 <!-- =================== 16 - WHAT WE NEED TO VALIDATE =================== -->
-<section class="slide">
+<section class="slide p4">
   <p class="kicker">15 <span class="sep">/</span> What we need to validate</p>
   <h1 class="title">Four things to align on. <em>Kickoff in September.</em></h1>
 
@@ -1067,7 +1090,7 @@
 </section>
 
 <!-- =================== 16 - Q&A: STRATEGY =================== -->
-<section class="slide">
+<section class="slide p4">
   <p class="kicker">Appendix A <span class="sep">/</span> Anticipated questions - strategy &amp; economics</p>
   <h1 class="title">If you were sitting on the other side of the table.</h1>
 
@@ -1113,7 +1136,7 @@
 </section>
 
 <!-- =================== 17 - Q&A: EXECUTION & RISK =================== -->
-<section class="slide">
+<section class="slide p4">
   <p class="kicker">Appendix B <span class="sep">/</span> Anticipated questions - execution, risk &amp; governance</p>
   <h1 class="title">The questions that decide whether v1 ships.</h1>
 
@@ -1164,7 +1187,7 @@
 </section>
 
 <!-- =================== 18 - SOURCES APPENDIX =================== -->
-<section class="slide">
+<section class="slide p4">
   <p class="kicker">Appendix <span class="sep">/</span> Sources</p>
   <h1 class="title">Sources</h1>
 
