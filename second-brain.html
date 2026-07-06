@@ -394,6 +394,21 @@
   .validate-close { margin-top: 14px; background: var(--ink); color: var(--bg); border-radius: 10px; padding: 14px 20px; font-size: 13px; line-height: 1.5; }
   .validate-close b { color: var(--accent); }
 
+  /* ---------- COVER OUTLINE ---------- */
+  .cover-outline {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-top: 36px; max-width: 940px; text-align: left;
+  }
+  .cover-outline .co {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .cover-outline .co b {
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    color: var(--accent); font-size: 15px; display: block; margin-bottom: 4px;
+  }
+  .cover-outline .co span { font-size: 12px; color: var(--ink-2); line-height: 1.45; display: block; }
+
   /* ---------- Q&A APPENDIX ---------- */
   .qa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
   .qa-card { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; }
@@ -412,56 +427,56 @@
 
 <!-- =================== 0 - COVER =================== -->
 <section class="slide cover active">
-  <p class="sub">34 Ventures - Partner working session</p>
+  <p class="sub">34 Ventures - Internal proposal - June 2026</p>
   <h1>The 34V <em>Second Brain</em></h1>
-  <p class="sub" style="margin-top:18px;">June 2026</p>
-  <p class="tagline">Turn partner judgment into a compounding asset. For the studio, and for every founder we back.</p>
+  <p class="tagline">A proposal to connect the studio's playbooks, portfolio data, and partner judgment into one system - built internally, supporting both the studio team and the founders we back.</p>
+  <div class="cover-outline">
+    <div class="co"><b>What it is</b><span>Why now, the AI-operator landscape, and the flywheel (slides 1-4)</span></div>
+    <div class="co"><b>What it does</b><span>Data, use cases for the studio and for founders, the pattern engine (5-8)</span></div>
+    <div class="co"><b>How it grows</b><span>Roadmap, autonomy dial, landscape, ownership structure (9-12)</span></div>
+    <div class="co"><b>How we build it</b><span>Team, risks, and what to validate for a September start (13-15)</span></div>
+  </div>
 </section>
 
-<!-- =================== 1 - WHY NOW (value creation) =================== -->
+<!-- =================== 1 - WHY NOW =================== -->
 <section class="slide">
   <p class="kicker">01 <span class="sep">/</span> Why now</p>
-  <h1 class="title">AI moves EBITDA. <em>The question isn't whether to use it. It's whether to operationalise it across the portfolio.</em></h1>
+  <h1 class="title">The portfolio grows every year. <em>Partner hours don't.</em></h1>
 
   <div class="body stat-hero">
     <div>
-      <div class="stat-num">20<span class="small">-25%</span></div>
-      <div class="stat-cap"><b>EBITDA gains</b> PE operating partners are driving with AI in portfolio companies today.</div>
-      <div class="stat-src">Korn Ferry, AI Assembly Lines, Withum (2026).</div>
-      <div class="corrob">
-        <div class="c"><b>2-4x</b><span>Annualised EBITDA uplift per $1 invested in AI transformation (Withum)</span></div>
-        <div class="c"><b>15-30%</b><span>Cost reductions on targeted processes inside the first 24 months</span></div>
-        <div class="c"><b>15-20%</b><span>Reduction in addressable procurement spend, delivered in 90-180 days</span></div>
-      </div>
-    </div>
-    <div class="stat-side">
-      <h2>We don't bet on adoption. We operationalise the lever.</h2>
-      <p>The PE world figured this out first. "AI Operating Partner" is now a job title at the bigger funds. A studio that doesn't wire the same lever across a co-built portfolio leaves the compounding on the table.</p>
-      <p>The good news: we're not starting from zero. Eight Claude skills are already in production inside 34V today.</p>
-      <div class="pill-row">
-        <span class="pill">memos</span>
+      <div class="stat-num">8</div>
+      <div class="stat-cap"><b>Claude skills already in production</b> at 34V - accelerating studio processes and portfolio support today.</div>
+      <div class="pill-row" style="margin-top:14px; max-width:440px;">
+        <span class="pill">investment memos</span>
         <span class="pill">GTM &amp; 90-day plans</span>
-        <span class="pill">market sizing</span>
+        <span class="pill">market research &amp; sizing</span>
         <span class="pill">portfolio updates</span>
-        <span class="pill">IDA office hours</span>
+        <span class="pill">IDA office-hours minutes</span>
         <span class="pill">investor updates</span>
-        <span class="pill">competitive maps</span>
+        <span class="pill">competitive &amp; investor maps</span>
         <span class="pill">financial models</span>
       </div>
-      <p style="margin-top:12px; color:var(--ink); font-weight:500; font-size:14.5px;">A 90-day connect-what-we-have engagement. Two properties, one asset: sharper studio operations, and readily available advice for the founders we back.</p>
+      <div class="stat-src" style="margin-top:14px;">Each one codifies a studio playbook. Each one already saves hours per use. They just don't talk to each other yet.</div>
+    </div>
+    <div class="stat-side">
+      <h2>The constraint isn't AI. It's partner attention.</h2>
+      <p>Every company we co-build adds office hours, check-ins, updates to review, decisions to weigh in on. Partner time is the studio's scarcest asset, and it's the one input that doesn't scale with the portfolio. The choice today is between deeper support for fewer companies, or thinner support for more.</p>
+      <p>The eight skills broke that trade-off task by task: a memo that took two days takes an afternoon; office-hours minutes write themselves. Connected into one system with shared memory, they break it at the portfolio level - every answer informed by everything the studio knows, available to founders without waiting for a partner's calendar.</p>
+      <p style="margin-top:12px; color:var(--ink); font-weight:500; font-size:14.5px;">Better portfolio outcomes from the same partner hours. That's the whole thesis.</p>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>01 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>01 / 18</span></div>
 </section>
 
-<!-- =================== 2 - POLSIA DEEPER =================== -->
+<!-- =================== 2 - THE AI OPERATOR SPACE =================== -->
 <section class="slide">
-  <p class="kicker">02 <span class="sep">/</span> Polsia</p>
-  <h1 class="title">Polsia is the most-cited reference in this space. <em>It is not our shape.</em></h1>
+  <p class="kicker">02 <span class="sep">/</span> The AI operator space</p>
+  <h1 class="title">AI is starting to run companies, not just assist them. <em>Polsia is the proof point.</em></h1>
 
   <div class="body split">
     <div class="left">
-      <div class="label">Reference</div>
+      <div class="label">The proof point</div>
       <div class="name">Polsia</div>
       <dl>
         <dt>Founder</dt>
@@ -477,23 +492,27 @@
       </dl>
     </div>
     <div class="right">
-      <p class="lede">Sharp product. Wrong audience.</p>
-      <p>What's defensible about Polsia is the friction it removes. Most "AI for business" products break on the first integration. Polsia provisions the whole stack, so the user never sees the seams. The daily email creates a habit loop the user opts into voluntarily. The 20% rev cut aligns incentives.</p>
-      <p>What's not defensible is the playbook. The same template runs across all 5,000+ companies. There is no partner judgment shaping the answer, no co-build relationship, no operator decisions feeding the next decision. It's a generic founder-in-a-box.</p>
-      <p>That's why Polsia works for the audience it has - people who want a company to push a button on. It is also why it does not work for ours. 34V backs operators. They don't want an AI CEO. They want the studio's hard-won playbook plus sibling-company memory, delivered to them on demand, with a partner still in the loop.</p>
-      <p style="font-size:13px; color:var(--mute); margin-top:8px;">The one thing worth borrowing: the daily nudge loop. It's the cheapest behaviour-change mechanic in the space.</p>
+      <p class="lede">What's happening in the space:</p>
+      <ul style="margin:0 0 14px 0; padding-left:18px; font-size:14px; color:var(--ink-2); line-height:1.55;">
+        <li style="margin-bottom:8px;"><b>From assistant to operator.</b> The frontier moved from AI that drafts to AI that executes - running ops, marketing, outreach, and reporting end-to-end (YC W26: ~60% AI companies, "delegated operators").</li>
+        <li style="margin-bottom:8px;"><b>Whole businesses on autopilot.</b> Polsia runs 5-6,000 micro-companies with zero employees. Light Anchor does it for e-commerce brands. Thomas is an AI that <i>is</i> the founder.</li>
+        <li style="margin-bottom:8px;"><b>The daily loop is the habit mechanic.</b> Polsia's morning email is the cheapest behaviour-change device in the space - users steer by replying. Worth borrowing.</li>
+        <li style="margin-bottom:8px;"><b>Full-stack provisioning kills friction.</b> The products that grow fastest never ask users to connect anything - they provision the whole stack.</li>
+        <li style="margin-bottom:8px;"><b>All of it targets non-operators.</b> People who want a business run <i>for</i> them. Nobody is building for a portfolio of operator-led companies with a studio behind them.</li>
+      </ul>
+      <p style="font-size:13.5px; color:var(--ink); font-weight:500;">Our founders don't want an AI CEO. They want the studio's playbook and sibling-company memory on demand, with a partner in the loop. That product doesn't exist yet.</p>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>02 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>02 / 18</span></div>
 </section>
 
 <!-- =================== 3 - THE CATEGORY =================== -->
 <section class="slide">
   <p class="kicker">03 <span class="sep">/</span> The category</p>
-  <h1 class="title">Polsia is no longer alone. <em>The autonomous operator is a category now.</em></h1>
+  <h1 class="title">Four YC-backed companies now run businesses end-to-end. <em>None serve an operator-led portfolio.</em></h1>
 
   <div class="body">
-    <p class="lede" style="margin-bottom:14px; max-width:920px;">YC funded four versions of this idea in two batches. None of them target a studio's operator-led portfolio. Our wedge is open.</p>
+    <p class="lede" style="margin-bottom:14px; max-width:920px;">Two batches, four takes on the same idea. Each is instructive. None target what we have - a portfolio of operator-led companies with a studio behind them.</p>
 
     <div class="category-grid">
       <div class="cat-card">
@@ -538,47 +557,47 @@
       Polsia proved the demand. The batch proves it's a <em>category</em>. None of these serve a co-built, operator-led portfolio. That is the gap, and it is ours to take.
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>03 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>03 / 18</span></div>
 </section>
 
-<!-- =================== 4 - FLYWHEEL =================== -->
+<!-- =================== 4 - HOW IT WORKS (RAG flywheel) =================== -->
 <section class="slide">
-  <p class="kicker">04 <span class="sep">/</span> The flywheel</p>
-  <h1 class="title">The flywheel is the moat. A fund can't copy it. <em>Neither can a SaaS vendor.</em></h1>
+  <p class="kicker">04 <span class="sep">/</span> How it works</p>
+  <h1 class="title">A retrieval system over everything the studio knows - <em>that gets smarter every time a partner corrects it.</em></h1>
 
   <div class="body">
     <div class="flywheel-stage">
       <div class="flywheel-node">
         <div class="n">1</div>
-        <h3>Partner judgment in</h3>
-        <p>Transcripts, updates, KPI deltas, corrections.</p>
+        <h3>Ingest &amp; index</h3>
+        <p>Portfolio updates, transcripts, emails, and the eight skills' outputs - indexed with provenance (RAG).</p>
       </div>
       <div class="flywheel-arrow">→</div>
       <div class="flywheel-node">
         <div class="n">2</div>
-        <h3>Brain synthesises</h3>
-        <p>Studio's answer, with provenance.</p>
+        <h3>Augment partner judgment</h3>
+        <p>Partners and founders ask; the brain retrieves the studio's actual answer - sourced, not generic.</p>
       </div>
       <div class="flywheel-arrow">→</div>
       <div class="flywheel-node">
         <div class="n">3</div>
-        <h3>Founder decides</h3>
-        <p>Executes. Outcomes captured.</p>
+        <h3>Synthesise across the portfolio</h3>
+        <p>Connects what Co A learned to what Co C is facing. Summaries, alerts, LP drafts.</p>
       </div>
       <div class="flywheel-arrow">→</div>
       <div class="flywheel-node">
         <div class="n">4</div>
-        <h3>Partner corrects</h3>
-        <p>Memory updates. Next answer is better.</p>
+        <h3>Support the founders</h3>
+        <p>Playbook advice on demand, 24/7, without waiting for a partner's calendar.</p>
       </div>
     </div>
 
     <div class="flywheel-take">
-      <p>The studio model already compounds on this. GSSN via Bundl: studio companies hit Series A at <b>72% vs 42%</b> for traditional, in <b>25.2 months vs 56</b>. Mandalore's intangible-assets piece makes the same point - the studio's edge is the codified playbook plus the network plus the institutional memory.</p>
-      <p>A fund sees decks & KPIs. They don't see daily decisions. A SaaS vendor can serve the form of a memo but can't write the substance, because they don't have the partner-side judgment that decides what is good. We do. That is the asset we are trying to instrument.</p>
+      <p><b>The loop is recursive.</b> Every answer a partner corrects, every doc a founder adds, every office-hours session that runs - it all feeds back into step 1. The corrections matter most: when a partner says "for North Africa the answer is X, not the default", the brain learns it once and every future answer carries it. Partner judgment stops being trapped in four calendars and becomes something the whole portfolio can query.</p>
+      <p><b>And it's not copyable.</b> A fund sees decks & KPIs, not daily decisions. A SaaS vendor can serve the format but not the substance - they don't have partner judgment or a co-build relationship generating the data. Studio companies already reach Series A at 72% vs 42% for traditional, in 25.2 vs 56 months (GSSN via Bundl). This system compounds exactly the asset behind those numbers.</p>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>04 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>04 / 18</span></div>
 </section>
 
 <!-- =================== 5 - DATA SUBSTRATE =================== -->
@@ -614,9 +633,9 @@
           <div class="label">Financial models</div>
           <div class="desc">Per company. Actuals vs plan.</div>
         </div>
-        <div class="chip" style="grid-column: 1 / span 2;">
-          <div class="label">The eight skills' own outputs</div>
-          <div class="desc">Memos, GTM, sizings, maps. Versioned and queryable.</div>
+        <div class="chip warm" style="grid-column: 1 / span 2; border-width: 2px;">
+          <div class="label">The eight skills - the playbook layer, already codified</div>
+          <div class="desc">Investment memos, GTM &amp; 90-day plans, market research &amp; sizing, portfolio updates, IDA office-hours minutes, investor updates, competitive &amp; investor maps, financial models. Every output is a structured, versioned artifact of how 34V thinks. This is the seed corpus most companies would spend a year building - ours already exists.</div>
         </div>
       </div>
     </div>
@@ -629,11 +648,11 @@
         Every input has a different sensitivity & a different owner. Fireflies transcripts are the most valuable input we have, and also the one founders will care most about. Draft consent terms in week one, signed before any cross-company surface goes live.
       </p>
       <div class="order-note">
-        <b>Order in v1:</b> Fireflies + the skills' outputs first. Skip KPI capture - integrate Standard Metrics later if we ever need it.
+        <b>Order in v1:</b> the eight skills' outputs + Fireflies first - the playbook layer and the conversation layer. Skip KPI capture - integrate Standard Metrics later if we ever need it.
       </div>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>05 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>05 / 18</span></div>
 </section>
 
 <!-- =================== 6 - STUDIO TEAM =================== -->
@@ -655,7 +674,7 @@
       <b>Pilot order --></b> ship #1 first (highest frequency, partners use it daily). #2 second (the demo that wins partners over). #4 third (the LP-facing win that justifies the build out loud).
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>06 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>06 / 18</span></div>
 </section>
 
 <!-- =================== 7 - FOUNDER =================== -->
@@ -677,82 +696,52 @@
       <b style="color: var(--green);">What this beats:</b> "go use ChatGPT". A founder with ChatGPT has the world's knowledge. They don't have the other founders in our portfolio. That's the one thing we can offer that no AI vendor can.
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>07 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>07 / 18</span></div>
 </section>
 
-<!-- =================== 8 - TRUST CONTRACT =================== -->
+<!-- =================== 8 - PATTERN ENGINE (with consent built in) =================== -->
 <section class="slide">
-  <p class="kicker">08 <span class="sep">/</span> The trust contract</p>
-  <h1 class="title">Get "<em>what of mine is visible to whom?</em>" right before "what can the bot do for me?"</h1>
-
-  <div class="body" style="display:flex; flex-direction:column; justify-content:center; gap:18px;">
-    <p class="lede" style="max-width:880px;">
-      The first time Co C sees an answer that came from Co A, every founder asks the same question: did Co A consent? Did the partner approve the cross? Was anything identifying leaked? Get this wrong on day one and founders close the tab forever.
-    </p>
-
-    <div class="tiers">
-      <div class="v-card"><div class="num">1</div><h3>Verbatim with attribution</h3><p>The actual answer from Co A, with their name on it. Requires explicit per-question opt-in from Co A.</p></div>
-      <div class="v-card"><div class="num">2</div><h3>Anonymised pattern</h3><p>"A sibling company in your stage hit this and resolved it by X." No identifying detail. Default for most surfaces.</p></div>
-      <div class="v-card"><div class="num">3</div><h3>Studio-internal only</h3><p>Pattern surfaces to partners, never to founders. For anything sensitive enough that founders shouldn't see it.</p></div>
-    </div>
-
-    <p style="font-size:13.5px; color:var(--ink-2); max-width:880px;">
-      Three tiers in week one. Founders pick the tier per data type. Partners reserve the right to refuse to surface anything - not every pattern that would compound value should be surfaced. Partner judgment is the gate.
-    </p>
-  </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>08 / 19</span></div>
-</section>
-
-<!-- =================== 9 - PATTERN ENGINE + MOAT =================== -->
-<section class="slide">
-  <p class="kicker">09 <span class="sep">/</span> Pattern engine, & why this is the moat</p>
-  <h1 class="title">YC is commoditising memory. <em>Memory isn't our moat. The playbook is.</em></h1>
+  <p class="kicker">08 <span class="sep">/</span> The pattern engine</p>
+  <h1 class="title">One company's lesson becomes <em>every company's answer.</em></h1>
 
   <div class="body pattern">
     <div class="pattern-diagram">
       <div class="hub">Pattern<br/>engine</div>
       <div class="nodes">
-        <div class="n"><div class="co">Co A</div><div class="what">Solved hiring bottleneck at M6</div></div>
-        <div class="n"><div class="co">Co B</div><div class="what">Same shape, fixed with channel mix</div></div>
-        <div class="n"><div class="co">Co C</div><div class="what">M5, about to hit it</div></div>
+        <div class="n"><div class="co">Co A</div><div class="what">Hit a hiring wall at month 6. Fixed it. The fix is in the brain.</div></div>
+        <div class="n"><div class="co">Co B</div><div class="what">Same wall, different fix. Also in the brain.</div></div>
+        <div class="n"><div class="co">Co C</div><div class="what">Month 5. About to hit the same wall.</div></div>
       </div>
-      <p style="text-align:center; color:var(--mute); font-size:11.5px; margin-top:12px;">push, not pull - brain alerts the partner before Co C asks</p>
+      <p style="text-align:center; color:var(--ink-2); font-size:12.5px; margin-top:14px; line-height:1.5;">The brain spots that Co C's situation matches A's and B's - and alerts the partner <b>before Co C asks</b>, with both fixes attached.</p>
+
+      <div class="warn" style="margin-top:14px;">
+        Generic memory tools are multiplying (Corvera: $33k MRR in 4 weeks; Memory Store; a whole YC S26 cohort of agent plumbing). The plumbing is becoming a commodity. What can't be bought: <b>our playbooks, our portfolio's lessons, our partners' judgment.</b>
+      </div>
     </div>
 
     <div class="pattern-side">
-      <h2>Indexed by problem shape, not keyword.</h2>
-      <p>The brain answers Co C's question with Co A's and Co B's experience. Corrections back-propagate: when a partner says "the North Africa answer is X", the next founder gets X. Surfacing is push - the brain alerts the partner before the company asks.</p>
-
-      <div class="moat-row">
-        <div class="mc">
-          <b>YC W26 - Corvera</b>
-          Context layer for AI-native CPG brands via MCP. $0 -> $33k MRR in 4 weeks, 12 brands, 130% WoW (mid-March 2026). Raised $6.2M.
-        </div>
-        <div class="mc">
-          <b>YC - Memory Store</b>
-          "One memory for your team's agents". Pulls from Slack, Gmail, Granola. Any MCP-compatible agent can connect. Plumbing layer.
-        </div>
-      </div>
-
-      <p style="font-size:12.5px; color:var(--ink-2); margin-top:12px;">
-        YC Spring 2026 (194 companies, 61% B2B) is the most agent-heavy cohort yet, building identity, payments, memory, sandboxes, even insurance for AI agents. Plumbing is becoming a commodity.
-      </p>
-
-      <div class="warn">
-        Our defensibility cannot be "we built memory". It must be <b>operating playbooks across a co-built, operator-led portfolio, shaped by partner judgment</b>. The thing a non-operator can't replicate.
-      </div>
+      <h2>Three things make it work.</h2>
+      <p><b>1. It matches problems, not words.</b> "Hiring a senior salesperson in a thin talent market" and "filling a head-of-revenue role in Casablanca" are the same problem. The brain treats them as one pattern, so lessons transfer even when the vocabulary doesn't.</p>
+      <p><b>2. Partner corrections stick.</b> When a partner says "for North Africa the answer is X, not the default", the brain learns it once. Every future answer - to any founder - carries the correction.</p>
+      <p><b>3. Nothing crosses companies without consent.</b> Every insight moves at one of three levels, chosen by the founder who owns the data:</p>
+      <ul style="margin:0 0 10px 0; padding-left:18px; font-size:13px; color:var(--ink-2); line-height:1.5;">
+        <li style="margin-bottom:5px;"><b>Named</b> - "here's exactly how Co A did it", with Co A's per-question opt-in.</li>
+        <li style="margin-bottom:5px;"><b>Anonymised</b> - "a sibling company at your stage solved this by X". The default.</li>
+        <li style="margin-bottom:5px;"><b>Partners only</b> - surfaces to the studio team, never to other founders.</li>
+      </ul>
+      <p style="font-size:12.5px; color:var(--mute);">Consent terms drafted with founders in week one, before any cross-company surface goes live. Partners keep veto on anything the brain wants to surface.</p>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>09 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>08 / 18</span></div>
 </section>
 
 <!-- =================== 10 - FUTURE ROADMAP =================== -->
 <section class="slide">
-  <p class="kicker">10 <span class="sep">/</span> Where this goes</p>
-  <h1 class="title">90-day build is v1. <em>Here's where it points.</em></h1>
+  <p class="kicker">09 <span class="sep">/</span> Where this goes</p>
+  <h1 class="title">The 90-day build is v1. <em>Here's where it points.</em></h1>
 
   <div class="body">
-    <p class="lede" style="max-width:920px; margin-bottom:14px;">Year 3 is not designed today. It becomes available when v1 and v2 produce the evidence. The roadmap matters because it tells us what to instrument in v1 so the options stay open.</p>
+    <p class="lede" style="max-width:920px; margin-bottom:14px;">An internal tool designed to support the portfolio companies - that stays the frame through v2. Later paths exist, but they get validated, not assumed.</p>
 
     <div class="roadmap">
       <div class="phase now">
@@ -762,7 +751,7 @@
         <ul>
           <li>Office-hours prep, pattern surfacing, conversation continuity</li>
           <li>Founder sibling-consult & investor-update drafting</li>
-          <li>Three consent tiers from slide 8</li>
+          <li>Consent tiers from slide 8, signed before launch</li>
           <li>Adoption KPI baseline</li>
         </ul>
       </div>
@@ -770,40 +759,33 @@
       <div class="phase future">
         <div class="when" style="color: var(--blue);">Months 4-18</div>
         <div class="label">v2 - Expand &amp; instrument</div>
-        <p class="scope">Promote specific tasks up the dial as gates clear. Add the surfaces that move EBITDA inside portfolio companies, not just inside the studio.</p>
+        <p class="scope">Deepen the internal support. Promote specific tasks up the dial as gates clear.</p>
         <ul>
-          <li>Cross-portfolio benchmarking (anonymised, opt-in)</li>
-          <li>Predictive risk surfacing - hiring, runway, churn</li>
-          <li>IC memo simulation - test against critique patterns before IC</li>
-          <li>LP intelligence - which themes land with which LPs</li>
-          <li>Founder matching - mentors, advisors, co-founder candidates from the network</li>
-          <li>Open API: portfolio companies plug the brain into their stack</li>
-          <li>First operational-tier tasks: templated intros, hiring posts, scheduling</li>
+          <li>Cross-portfolio benchmarking - anonymised, opt-in</li>
+          <li>Predictive risk surfacing - hiring, runway, churn flags before they bite</li>
+          <li>IC memo simulation - pressure-test a memo against the studio's critique patterns before IC</li>
+          <li>First operational-tier tasks - templated intros, hiring posts, scheduling</li>
         </ul>
       </div>
 
       <div class="phase future">
-        <div class="when" style="color: var(--blue);">Months 18+</div>
-        <div class="label">v3 - Externalise if the data supports it</div>
-        <p class="scope">Spinout (B) or Studio-of-studios (C), decided on real data rather than slideware. v1 and v2 produce the evidence that makes either option viable, without committing to it up front.</p>
+        <div class="when" style="color: var(--blue);">Optional paths - to validate</div>
+        <div class="label">Beyond internal</div>
+        <p class="scope">Two paths could open once the internal tool is proven. Neither is part of this proposal - both would need their own validation.</p>
         <ul>
-          <li>Studio-of-studios subscription tier - other regional studios run on the playbook library</li>
-          <li>Anonymised pattern marketplace across participating studios</li>
-          <li>Multi-language layer (AR / FR / EN / Amazigh) for North African operators</li>
-          <li>"Founder twin" - voice-matched drafting for routine ops, founder approves</li>
-          <li>Agent that handles a defined slice of portfolio asks without per-action review</li>
+          <li>Spinout - productise for other studios and VCs</li>
+          <li>Studio-of-studios - license the playbook library to other regional studios</li>
         </ul>
+        <p class="scope" style="margin-top:10px;">What we do now is keep them cheap to open later: multi-tenant data model, exportable provenance, clean IP assignment (slide 12).</p>
       </div>
     </div>
-
-    <p class="roadmap-note">v1 ships things v2 needs. v2 ships things v3 needs. None of v2 or v3 commits us today - they tell us what scaffolding to build into v1 so the options stay open.</p>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>10 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>09 / 18</span></div>
 </section>
 
 <!-- =================== 11 - DIAL + MARKET CONSENSUS =================== -->
 <section class="slide">
-  <p class="kicker">11 <span class="sep">/</span> The dial</p>
+  <p class="kicker">10 <span class="sep">/</span> The dial</p>
   <h1 class="title">Advisory by default. Operational as gates clear. <em>The shape the market has independently converged on.</em></h1>
 
   <div class="body">
@@ -838,12 +820,12 @@
       </ol>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>11 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>10 / 18</span></div>
 </section>
 
 <!-- =================== 12 - LANDSCAPE =================== -->
 <section class="slide">
-  <p class="kicker">12 <span class="sep">/</span> The landscape</p>
+  <p class="kicker">11 <span class="sep">/</span> The landscape</p>
   <h1 class="title">Three categories own three layers. <em>No one owns the playbook layer.</em></h1>
 
   <div class="body">
@@ -884,12 +866,12 @@
       </div>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>12 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>11 / 18</span></div>
 </section>
 
 <!-- =================== 13 - STRUCTURE =================== -->
 <section class="slide">
-  <p class="kicker">13 <span class="sep">/</span> How we own this</p>
+  <p class="kicker">12 <span class="sep">/</span> How we own this</p>
   <h1 class="title">Build internal first. Instrument the data. <em>Keep spinout optionality.</em></h1>
 
   <div class="body">
@@ -929,24 +911,37 @@
       </ol>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>13 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>12 / 18</span></div>
 </section>
 
 <!-- =================== 14 - THE TEAM =================== -->
 <section class="slide">
-  <p class="kicker">14 <span class="sep">/</span> The team</p>
-  <h1 class="title">External consulting lead. <em>Internally accountable. On 34V's terms.</em></h1>
+  <p class="kicker">13 <span class="sep">/</span> The team</p>
+  <h1 class="title">Internal lead, two external consultants. <em>Built inside 34V, on 34V's terms.</em></h1>
 
   <div class="body">
-    <p class="lede" style="max-width:920px; margin-bottom:16px;">The build is capital-light and reversible - two consultants with complementary skill sets, developing the Second Brain inside 34V rather than a new hire or a product entity.</p>
+    <p class="lede" style="max-width:920px; margin-bottom:16px;">Capital-light and reversible - an internal lead plus two consultants with complementary skill sets, developing the Second Brain inside 34V rather than a new hire or a product entity.</p>
 
-    <div class="team-grid">
+    <div class="team-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="person-card" style="border-color: var(--accent);">
+        <span class="person-tag">Internal lead - 34V</span>
+        <p class="person-role-line">Diego - partner, 34V.</p>
+        <div class="person-body">
+          <p>Owns the project inside the studio: scope, budget, consent conversations with founders, and the adoption KPIs the build is judged on.</p>
+          <p>Ran the exploratory conversations with both consultants and carries the studio context they will need - which playbooks matter, which rituals the brain has to live inside.</p>
+        </div>
+        <div class="person-fit">
+          <b>Role</b>
+          Accountability sits here. The consultants deliver to Diego; Diego answers to the partners.
+        </div>
+      </div>
+
       <div class="person-card">
         <span class="person-tag">Consulting lead - product &amp; adoption</span>
-        <p class="person-role-line">CEO, startup-support organisation.</p>
+        <p class="person-role-line">COO, startup-support organisation.</p>
         <div class="person-body">
-          <p>Recently built the AI layers inside their own organisation - the same shape of problem we are solving here, delivered to founder-facing users.</p>
-          <p>Ships production AI systems, not prototypes. Has seen first-hand which pieces get adopted by operators and which turn into shelfware.</p>
+          <p>Recently built the AI layers inside their own organisation - the same shape of problem, delivered to founder-facing users.</p>
+          <p>Ships production AI systems, not prototypes. Has seen first-hand which pieces operators adopt and which turn into shelfware.</p>
         </div>
         <div class="person-fit">
           <b>Why they fit</b>
@@ -958,26 +953,26 @@
         <span class="person-tag">Consulting lead - engineering &amp; RAG</span>
         <p class="person-role-line">Software engineer. Ex-lead software development, top-3 Spanish bank.</p>
         <div class="person-body">
-          <p>Now being approached by VC firms to build the AI systems inside their funds. Deep RAG expertise - production-scale retrieval, provenance, audit trails.</p>
-          <p>The discipline the pattern engine + consent layer require: things that have to work quietly, reliably, at production quality.</p>
+          <p>Now approached by VC firms to build the AI systems inside their funds. Deep RAG expertise - production-scale retrieval, provenance, audit trails.</p>
+          <p>The discipline the pattern engine and consent layer require: systems that work quietly, reliably, at production quality.</p>
         </div>
         <div class="person-fit">
           <b>Why they fit</b>
-          The engineering shape of this build is closer to a small-scale bank system than a consumer app. Domain overlap is unusually direct.
+          This build is closer to a small-scale bank system than a consumer app. Domain overlap is unusually direct.
         </div>
       </div>
     </div>
 
     <div class="team-note">
-      Both are aware of the project and excited to lead it. Two exploratory conversations to date. <em>Pending studio approval</em>, they come in as an external consulting lead - developing the Second Brain inside 34V, accountable to a named partner, delivering to the scope on slide 13.
+      Both consultants are aware of the project and excited to lead it - two exploratory conversations to date. <em>Pending studio approval</em>, they come in as external consulting leads, accountable to Diego, delivering to the scope on slide 12.
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>14 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>13 / 18</span></div>
 </section>
 
 <!-- =================== 15 - WHAT KILLS THIS =================== -->
 <section class="slide">
-  <p class="kicker">15 <span class="sep">/</span> What kills this</p>
+  <p class="kicker">14 <span class="sep">/</span> What kills this</p>
   <h1 class="title">The risks are human. <em>They're not technical.</em></h1>
 
   <div class="body">
@@ -1010,16 +1005,16 @@
       <b>What we do about it --></b> embed the brain inside existing rituals (office hours, founder check-ins, IC prep). Name one playbook owner per skill. Define adoption KPIs before launch - weekly active partners, weekly active founders, correction-rate trend.
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>15 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>14 / 18</span></div>
 </section>
 
 <!-- =================== 16 - WHAT WE NEED TO VALIDATE =================== -->
 <section class="slide">
-  <p class="kicker">16 <span class="sep">/</span> What we need to validate</p>
+  <p class="kicker">15 <span class="sep">/</span> What we need to validate</p>
   <h1 class="title">Four things to align on. <em>Kickoff in September.</em></h1>
 
   <div class="body">
-    <p class="lede" style="max-width:920px; margin-bottom:16px;">Not a hard ask - a validation. Four items to confirm before I go back to the two consultants on slide 14 to define the September start.</p>
+    <p class="lede" style="max-width:920px; margin-bottom:16px;">Not a hard ask - a validation. Four items to confirm before I go back to the team on slide 13 to define the September start.</p>
 
     <div class="validate-list">
       <div class="v-item">
@@ -1034,7 +1029,7 @@
         <div class="num">2</div>
         <div class="body">
           <h3>Scope confirmation</h3>
-          <p>Alignment on what v1 includes: the substrate on slide 5, studio use cases 1, 2 &amp; 4 (slide 6), founder use cases 1 &amp; 2 (slide 7), one end-to-end pattern alert (slide 9), advisory mode only. And what it excludes.</p>
+          <p>Alignment on what v1 includes: the substrate on slide 5, studio use cases 1, 2 &amp; 4 (slide 6), founder use cases 1 &amp; 2 (slide 7), one end-to-end pattern alert (slide 8), advisory mode only. And what it excludes.</p>
         </div>
       </div>
 
@@ -1059,7 +1054,7 @@
       <b>Where we stand --></b> two exploratory conversations already done. Both consultants are excited to lead this. The rest is on us to align internally, then confirm.
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>16 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>15 / 18</span></div>
 </section>
 
 <!-- =================== 16 - Q&A: STRATEGY =================== -->
@@ -1105,7 +1100,7 @@
       </div>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>17 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>16 / 18</span></div>
 </section>
 
 <!-- =================== 17 - Q&A: EXECUTION & RISK =================== -->
@@ -1127,7 +1122,7 @@
 
       <div class="qa-card">
         <p class="q">"What if our playbooks turn out to be too idiosyncratic to reuse?"</p>
-        <p class="a">Second-biggest risk on slide 15, and one we only learn from v1. The test: ship the first cross-company pattern alert in 90 days and watch. Two land --> the thesis holds. Zero land --> we kill v2 and re-scope. We don't pre-commit to the answer.</p>
+        <p class="a">Second-biggest risk on slide 14, and one we only learn from v1. The test: ship the first cross-company pattern alert in 90 days and watch. Two land --> the thesis holds. Zero land --> we kill v2 and re-scope. We don't pre-commit to the answer.</p>
       </div>
 
       <div class="qa-card">
@@ -1156,7 +1151,7 @@
       </div>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>18 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>17 / 18</span></div>
 </section>
 
 <!-- =================== 18 - SOURCES APPENDIX =================== -->
@@ -1194,22 +1189,20 @@
       </div>
     </div>
   </div>
-  <div class="footer"><span class="brand">34V Second Brain</span><span>19 / 19</span></div>
+  <div class="footer"><span class="brand">34V Second Brain</span><span>18 / 18</span></div>
 </section>
 
 </div>
 
-<div class="controls"><span id="counter">1 / 20</span> &nbsp; <span style="opacity:0.6;">arrow keys</span></div>
+<div class="controls"><span style="opacity:0.6;">arrow keys</span></div>
 
 <script>
   const slides = document.querySelectorAll('.slide');
-  const counter = document.getElementById('counter');
   const bar = document.getElementById('bar');
   let i = 0;
   function show(n) {
     i = Math.max(0, Math.min(slides.length - 1, n));
     slides.forEach((s, k) => s.classList.toggle('active', k === i));
-    counter.textContent = (i + 1) + ' / ' + slides.length;
     bar.style.width = ((i + 1) / slides.length * 100) + '%';
     if (history && history.replaceState) {
       history.replaceState(null, '', '#' + (i + 1));

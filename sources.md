@@ -3,7 +3,12 @@
 Appendix for `second-brain.html`. The deck cites these inline as
 parenthetical references. Full URLs below, grouped by slide.
 
-## Slide 1 - Why now (AI value creation)
+## Slide 1 - Why now
+
+Slide 1 is built on internal facts: the eight skills in production and
+the partner-attention constraint. No external statistics cited on the
+slide. The AI value-creation sources below back the Q&A appendix
+discussion of the EBITDA lever:
 
 - Korn Ferry, *The AI Operating Partner: The Latest PE Portfolio Value
   Creation Role?* Establishes "AI Operating Partner" as an emerging
@@ -23,7 +28,7 @@ parenthetical references. Full URLs below, grouped by slide.
   office-hours minutes, investor updates, competitive and investor
   mapping, financial modeling).
 
-## Slide 2 - Polsia (deeper)
+## Slide 2 - The AI operator space
 
 - Latent Space / TeamDay summary, Ben Broca / Polsia (Feb 26 2026).
   $1M ARR at launch, ~1,000 companies.
@@ -58,7 +63,7 @@ parenthetical references. Full URLs below, grouped by slide.
   <https://www.ycombinator.com/companies/thomas>
   <https://madebythomas.ai/>
 
-## Slide 4 - The flywheel
+## Slide 4 - How it works (RAG flywheel)
 
 - GSSN data via Bundl (72% to Series A vs 42% traditional, 25.2
   months vs 56). GSSN primary URL not located; flag in session.
@@ -81,11 +86,7 @@ eight skills) are all internal to 34V.
 No new external sources. Use cases drawn from current studio workflow
 and the existing skills catalogue.
 
-## Slide 8 - The trust contract
-
-No external sources. Internal design principles.
-
-## Slide 9 - Pattern engine & moat
+## Slide 8 - The pattern engine (incl. consent tiers)
 
 - **Corvera (YC W26)**. Context layer for AI-native CPG brands via MCP.
   $0 -> $33k MRR in 4 weeks; 12 brands; 130% WoW (mid-March 2026);
@@ -105,12 +106,12 @@ No external sources. Internal design principles.
   network-derived features; 84.7% AUC.
   <https://www.researchgate.net/publication/394069831_Network-Based_Analysis_of_Venture_Capital_Success_in_Artificial_Intelligence_A_Knowledge_Graph_Approach>
 
-## Slide 10 - Where this goes (future roadmap)
+## Slide 9 - Where this goes (roadmap)
 
 No new external sources. Roadmap is an internal projection grounded
 in the substrate and use cases on slides 5-7.
 
-## Slide 11 - The dial
+## Slide 10 - The dial
 
 - Atlan, *Autonomous agents vs copilots* (21% mature governance).
   <https://atlan.com/know/autonomous-agents-vs-copilots/>
@@ -127,7 +128,7 @@ in the substrate and use cases on slides 5-7.
 - Domo, *AI copilots vs AI agents*. Trust-build pattern.
   <https://www.domo.com/blog/ai-copilots-vs-ai-agents-understanding-the-difference-and-choosing-the-right-approach>
 
-## Slide 12 - The landscape
+## Slide 11 - The landscape
 
 - Standard Metrics, *Top VC tech stack tools 2025*. 100+ VC firms,
   10,000+ companies.
@@ -143,7 +144,7 @@ in the substrate and use cases on slides 5-7.
 - Corvera, Memory Store, Polsia, Lunavo, Light Anchor, Thomas - sources
   above.
 
-## Slide 13 - How we own this
+## Slide 12 - How we own this
 
 - Slack origin (Tiny Speck internal tool).
   <https://slack.com/blog/productivity/slack-basecamp-agent>
@@ -155,7 +156,7 @@ in the substrate and use cases on slides 5-7.
   $3.94B in 2026, 11.3% CAGR through 2033.
   <https://www.grandviewresearch.com/industry-analysis/portfolio-management-software-market-report>
 
-## Slide 14 - What kills this
+## Slide 14 - What kills this (slide 13 is the team; no external sources)
 
 - MeltingSpot, *Digital transformation failure rate 2025*. ~70% miss
   objectives.
@@ -170,7 +171,7 @@ in the substrate and use cases on slides 5-7.
   shelfware*.
   <https://www.marlboroughst.com/think/dont-let-your-software-turn-into-shelfware>
 
-## Slide 15 - The decision
+## Slide 15 - What we need to validate
 
 No external sources.
 
