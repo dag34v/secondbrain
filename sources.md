@@ -106,12 +106,19 @@ and the existing skills catalogue.
   network-derived features; 84.7% AUC.
   <https://www.researchgate.net/publication/394069831_Network-Based_Analysis_of_Venture_Capital_Success_in_Artificial_Intelligence_A_Knowledge_Graph_Approach>
 
-## Slide 9 - Where this goes (roadmap)
+## Slide 9 - The interaction loop
+
+No external sources. The chat exchange is an illustrative mock, not a
+transcript. The three streams (partner judgment, portfolio patterns,
+living best practice via recurring web scan) are product design, not
+cited claims.
+
+## Slide 10 - Where this goes (roadmap)
 
 No new external sources. Roadmap is an internal projection grounded
 in the substrate and use cases on slides 5-7.
 
-## Slide 10 - The dial
+## Slide 11 - The dial
 
 - Atlan, *Autonomous agents vs copilots* (21% mature governance).
   <https://atlan.com/know/autonomous-agents-vs-copilots/>
@@ -128,7 +135,7 @@ in the substrate and use cases on slides 5-7.
 - Domo, *AI copilots vs AI agents*. Trust-build pattern.
   <https://www.domo.com/blog/ai-copilots-vs-ai-agents-understanding-the-difference-and-choosing-the-right-approach>
 
-## Slide 11 - The landscape
+## Slide 12 - The landscape
 
 - Standard Metrics, *Top VC tech stack tools 2025*. 100+ VC firms,
   10,000+ companies.
@@ -144,7 +151,7 @@ in the substrate and use cases on slides 5-7.
 - Corvera, Memory Store, Polsia, Lunavo, Light Anchor, Thomas - sources
   above.
 
-## Slide 12 - How we own this
+## Slide 13 - How we own this
 
 - Slack origin (Tiny Speck internal tool).
   <https://slack.com/blog/productivity/slack-basecamp-agent>
@@ -156,7 +163,7 @@ in the substrate and use cases on slides 5-7.
   $3.94B in 2026, 11.3% CAGR through 2033.
   <https://www.grandviewresearch.com/industry-analysis/portfolio-management-software-market-report>
 
-## Slide 14 - What kills this (slide 13 is the team; no external sources)
+## Slide 15 - What kills this (slide 14 is the team; no external sources)
 
 - MeltingSpot, *Digital transformation failure rate 2025*. ~70% miss
   objectives.
@@ -171,7 +178,7 @@ in the substrate and use cases on slides 5-7.
   shelfware*.
   <https://www.marlboroughst.com/think/dont-let-your-software-turn-into-shelfware>
 
-## Slide 15 - What we need to validate
+## Slide 16 - What we need to validate
 
 No external sources.
 
